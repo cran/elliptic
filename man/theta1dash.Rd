@@ -6,7 +6,7 @@
 \description{
 First, second, and third derivatives of the theta functions
 }
-\usage{give.n = FALSE, 
+\usage{
 theta1dash(z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, maxiter = 30)
 theta1dashdash(z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, maxiter = 30)
 theta1dashdashdash(z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, maxiter = 30)
@@ -15,8 +15,8 @@ theta1dashdashdash(z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, maxiter
   \item{z}{Primary complex argument}
   \item{ignore}{Dummy argument to force the user to name the next
     argument either \code{m} or \code{q}}
-  \item{m}{m}
-  \item{q}{q}
+  \item{m}{m as documented in \code{theta1()}}
+  \item{q}{q as documented in \code{theta1()}}
     \item{give.n}{Boolean with default \code{FALSE} meaning to return the
     function evaluation, and \code{TRUE} meaning to return a two element
     list, with first element the function evaluation, and second element

@@ -1,5 +1,5 @@
 Package: elliptic
-Version: 0.4-13
+Version: 0.4-14
 Date: 18-11-2004
 Title: elliptic functions
 Author: Robin K. S. Hankin
@@ -10,4 +10,4 @@ Description:
  visualizing complex functions.
 Maintainer: Robin Hankin <r.hankin@noc.soton.ac.uk>
 License: GPL
-Packaged: Tue Jul 12 21:43:10 2005; rksh
+Packaged: Tue Jul 19 22:20:07 2005; rksh
