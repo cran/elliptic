@@ -1924,23 +1924,23 @@ function (x, y, z, scheme = 0, real.contour = TRUE, imag.contour = real.contour,
         }, "2" = function(z) {
             hsv(h = g(Arg(z)), s = scale(abs(z)), v = 1)
         }, "3" = function(z) {
-            hsv(h = scale(Re(z)), s = 1, v = scale(Mod(z)))
+            hsv(h = scale(Re(z)), s = 1, v = scale(Mod(z))^power)
         }, "4" = function(z) {
-            hsv(h = 0.4, s = 1, v = scale(Arg(z)))
+            hsv(h = 0.4, s = 1, v = scale(Arg(z))^power)
         }, "5" = function(z) {
             hsv(h = 0.4, s = 0, v = 0.5 + 0.5 * (Im(z) > 0))
         }, "6" = function(z) {
             hsv(h = 0.4, s = 1, v = 0.5 + 0.5 * (Im(z) > 0))
         }, "7" = function(z) {
-            hsv(h = scale(Re(z)), s = 1, v = scale(Mod(z)))
+            hsv(h = scale(Re(z))^power, s = 1, v = scale(Mod(z))^power)
         }, "8" = function(z) {
             hsv(h = wrap(Arg(z)))
         }, "9" = function(z) {
-            hsv(h = wrap(Arg(z)), v = scale(Mod(z)))
+            hsv(h = wrap(Arg(z)), v = scale(Mod(z))^power)
         }, "10" = function(z) {
             hsv(h = wrap(Arg(z)), v = scale(exp(-Mod(z))))
         }, "11" = function(z) {
-            hsv(h = wrap(Arg(z)), s = scale(Mod(z)))
+            hsv(h = wrap(Arg(z)), s = scale(Mod(z))^power)
         }, "12" = function(z) {
             hsv(h = wrap(Arg(z)), s = scale(exp(-Mod(z))))
         }, "13" = function(z) {
@@ -1952,14 +1952,14 @@ function (x, y, z, scheme = 0, real.contour = TRUE, imag.contour = real.contour,
             hsv(h = wrap(Arg(z)), s = 1, v = 0.4 + 0.4 * (floor(Re(z)) + 
                 floor(Im(z)))%%2)
         }, "16" = function(z) {
-            hcl(h = 360 * wrap(Arg(z)), l = 100 * scale(Mod(z)))
+            hcl(h = 360 * wrap(Arg(z)), l = 100 * scale(Mod(z))^power)
         }, "17" = function(z) {
-            hcl(h = 360 * wrap(Arg(z)), c = 100 * scale(Mod(z)))
+            hcl(h = 360 * wrap(Arg(z)), c = 100 * scale(Mod(z))^power)
         }, "18" = function(z) {
-            rgb(red = scale(Re(z)), green = 1 - scale(Re(z)), 
-                blue = scale(Im(z)))
+            rgb(red = scale(Re(z)), green = 1 - scale(Re(z))^power, 
+                blue = scale(Im(z))^power)
         }, "19" = function(z) {
-            rgb(red = scale(Re(z)), green = scale(Im(z)), blue = 0)
+            rgb(red = scale(Re(z)), green = scale(Im(z))^power, blue = 0)
         }, function(z) {
             hsv(s = 0, v = 1)
         })

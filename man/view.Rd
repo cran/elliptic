@@ -40,7 +40,11 @@ default = 0, col="black", r0=1, power=1, show.scheme=FALSE, ...)
   \item{power}{Defines a slight generalization of Thaller's scheme.
     Use high values to emphasize areas of high modulus (white) and low
     modulus (black); use low values to emphasize the argument over the
-    whole of the function's domain}
+    whole of the function's domain.
+
+    This argument is also applied to some of the other schemes where it
+    makes sense.}
+  
   \item{show.scheme}{Boolean, with default \code{FALSE} meaning to
     perform as advertized and visualize a complex function; and
     \code{TRUE} meaning to return the function corresponding to the
@@ -90,6 +94,11 @@ view(x,y,sn(z,m=1/2+0.3i),scheme=6,nlevels=33,drawlabels=FALSE)
 view(x,y,limit(P(z,c(1+2.1i,1.3-3.2i))),scheme=2,nlevels=6,drawlabels=FALSE)
 view(x,y,limit(Pdash(z,c(0,1))),scheme=6,nlevels=7,drawlabels=FALSE)
 view(x,x,limit(zeta(z,c(1+1i,2-3i))),nlevels=6,scheme=4,col="white")
+
+# Now an example with a bespoke colour function:
+
+ fun <- function(z){hcl(h=360*wrap(Arg(z)),c= 100 * (Mod(z) < 1))}
+ view(x,x,limit(zeta(z,c(1+1i,2-3i))),nlevels=6,scheme=fun)
 
 view(scheme=10, show.scheme=TRUE)
 
