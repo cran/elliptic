@@ -32,17 +32,16 @@ parameters(Omega=NULL, g=NULL, description=NULL)
 \item{Omega}{A complex vector of length 2 giving the fundamental half
   periods \eqn{\omega_1}{omega1} and \eqn{\omega_2}{omega2}.  Notation
   follows Chandrasekharan: half period
-  \eqn{\omega_1}{omega1} is a (nontrivial) period of minimal modulus,
-  and \eqn{\omega_2}{omega2} is the next smallest having the property
-  \eqn{\omega_2/\omega_1}{omega2/omega1} not real.
+  \eqn{\omega_1}{omega1} is 0.5 times a (nontrivial) period of minimal
+  modulus, and \eqn{\omega_2}{omega2} is 0.5 times a period of smallest
+  modulus having the property \eqn{\omega_2/\omega_1}{omega2/omega1}
+  not real.
   
-  It is further required that
+  The relevant periods are made unique by the further requirement that
   \eqn{Re(\omega_1)>0}{Re(omega1)>0}, and 
   \eqn{Im(\omega_2)>0}{Im(omega2)>0}; but note that this
   often results in sign changes when considering cases on boundaries
   (such as real \eqn{g_2}{g2} and \eqn{g_3}{g3}). 
-
-
   
   \strong{Note} Different definitions exist for \eqn{\omega_3}{omega3}!
 A and S use \eqn{\omega_3=\omega_2-\omega_1}{omega3=omega2-omega1},

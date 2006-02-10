@@ -25,7 +25,7 @@ g2.fun.lambert(b, nmax=50, tol=1e-10, strict=TRUE)
 g3.fun.lambert(b, nmax=50, tol=1e-10, strict=TRUE)
 g2.fun.direct(b, nmax=50, tol=1e-10)
 g3.fun.direct(b, nmax=50, tol=1e-10)
-g2.fun.fixed(b, nmax=50, give=FALSE)
+g2.fun.fixed(b, nmax=50, tol=1e-10, give=FALSE)
 g3.fun.fixed(b, nmax=50, tol=1e-10, give=FALSE)
 g2.fun.vectorized(b, nmax=50, tol=1e-10, give=FALSE)
 g3.fun.vectorized(b, nmax=50, tol=1e-10, give=FALSE)
@@ -54,7 +54,7 @@ g3.fun.vectorized(b, nmax=50, tol=1e-10, give=FALSE)
 \details{
   Functions \code{g2.fun()} and \code{g3.fun()} use theta functions
   which converge very quickly.  These functions are the best in most
-  circumstances.  These functions include a loop that continues to add
+  circumstances.  The theta functions include a loop that continues to add
   terms until the partial sum is unaltered by addition
   of the next term.  Note that summation continues until \emph{all}
   elements of the argument are properly summed, so performance is
@@ -72,24 +72,27 @@ g3.fun.vectorized(b, nmax=50, tol=1e-10, give=FALSE)
   Lambert series to accelerate Chandrasekharan's formula.  In general,
   it is a little better than the divisor form.
   
-  Functions \code{g2.fun.fixed()} and \code{g2.fun.fixed()} are
-  vectorized in the sense that the function body uses only vector
-  operations.  These functions take only a single argument.  They are
-  called \dQuote{fixed} because the number of terms used is fixed in
-  advance (unlike \code{g2.fun()} and \code{g3.fun()}).
+  Functions \code{g2.fun.fixed()} and \code{g2.fun.fixed()} also use
+  Lambert series.  These functions are vectorized in the sense that
+  the function body uses only vector operations.  These functions do
+  not take a vector argument.  They are called \dQuote{fixed} because
+  the number of terms used is fixed in advance (unlike \code{g2.fun()}
+  and \code{g3.fun()}).
   
   Functions \code{g2.fun.vectorized()} and \code{g3.fun.vectorized()}
-  are fully vectorized in that they take a vector of periods or period
-  ratios.  However, this can lead to loss of precision in some cases
-  (specifically when the periods give rise to widely varying values of
-  g2 and g3).
+  also use Lambert series.  They are fully vectorized in that they take
+  a vector of periods or period ratios, unlike the previous two
+  functions.  However, this can lead to loss of precision in some
+  cases (specifically when the periods give rise to widely varying
+  values of g2 and g3).
   
-  Summation terms go as \code{nmax^2} in \code{g2.fun.direct()} and
-  \code{g3.fun.direct()}.  In general, the divisor function forms (that
-  is, \code{g2.fun()} and \code{g3.fun()}), converge much faster; and the
-  \dQuote{default} functions \code{g2.fun()} and \code{g3.fun()}, which
-  use Lambert series, converge faster still.
-  }
+  Functions \code{g2.fun.direct()} and \code{g3.fun.direct()} use a
+  direct summation.  These functions are absurdly slow.  In general,
+  the Lambert series functions converge much faster; and the
+  \dQuote{default} functions \code{g2.fun()} and \code{g3.fun()},
+  which use theta functions, converge faster still.
+}
+
 \author{Robin K. S. Hankin}
 \examples{
 ## Example 4, p664, LHS:

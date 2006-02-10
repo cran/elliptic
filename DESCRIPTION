@@ -1,6 +1,6 @@
 Package: elliptic
-Version: 0.4-15
-Date: 18-11-2004
+Version: 1.0-0
+Date: 2006-02-10
 Title: elliptic functions
 Author: Robin K. S. Hankin
 Depends: R (>= 2.0.0), MASS, abind
@@ -10,4 +10,4 @@ Description:
  visualizing complex functions.
 Maintainer: Robin Hankin <r.hankin@noc.soton.ac.uk>
 License: GPL
-Packaged: Mon Jan 16 22:01:56 2006; rksh
+Packaged: Sun Feb 12 21:56:27 2006; rksh

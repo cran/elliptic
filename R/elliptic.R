@@ -36,8 +36,6 @@ function (p, n = 3, tol = 1e-05, give.answers = FALSE)
     if (Im(tau) == 0) {
         stop("period ratio real")
     }
-    p1 <- p[1]
-    p2 <- p[2]
     jj <- as.matrix(expand.grid(0:n, n:-n))[-n * (n + 1) - 1, 
         ]
     magnitudes <- abs(jj %*% p)
@@ -428,7 +426,8 @@ function (u, m, maxiter = 30)
 "e18.10.9" <-
 function (parameters) 
 {
-    attach(parameters)
+    Omega <- parameters$Omega
+    e <- parameters$e
     out <- rep(NA, 3)
     q <- exp((0+1i) * pi * Omega[2]/Omega[1])
     out[1] <- 12 * Omega[1]^2 * e[1] - pi^2 * (theta3(z = 0, 
@@ -510,7 +509,7 @@ function (g)
     e1 <- alpha * (beta + gamma)
     e2 <- alpha * (epsilon * beta + gamma/epsilon)
     e3 <- alpha * (1/epsilon * beta + gamma * epsilon)
-    out <- c(e1, e2, e3)
+    return(c(e1, e2, e3))
 }
 "equianharmonic" <-
 function (...) 
@@ -670,7 +669,7 @@ function (b, nmax = 50, strict = TRUE, tol = 1e-10)
     }
 }
 "g2.fun.fixed" <-
-function (b, nmax = 50, give = FALSE) 
+function (b, nmax = 50, tol=1e-10, give = FALSE) 
 {
     jj <- p1.tau(b)
     p1 <- jj$p1
@@ -1201,7 +1200,6 @@ function (z, g = NULL, Omega = NULL, params = NULL, use.fpp = TRUE,
     e <- params$e
     q <- params$q
     omega <- params$Omega[1]
-    Delta <- params$Delta
     v <- pi * z/(2 * omega)
     out1 <- e[1] + pi^2/(4 * omega^2) * (theta1.dash.zero.q(q) * 
         theta2(v, q = q, ...)/theta2(0, q = q, ...)/theta1(v, 
@@ -1271,9 +1269,6 @@ function (Omega = NULL, g = NULL, description = NULL)
         g3 <- g[2]
     }
     e <- e1e2e3(g, Omega = Omega)
-    e1 <- e[1]
-    e2 <- e[2]
-    e3 <- e[3]
     Delta <- g2^3 - 27 * g3^2
     omega1 <- Omega[1]
     omega2 <- Omega[2]
@@ -1287,7 +1282,7 @@ function (Omega = NULL, g = NULL, description = NULL)
     eta3 <- -eta2 - eta1
     Eta <- c(eta1, eta2, eta3)
     out <- list(Omega = Omega, q = exp(pi * (0+1i) * (omega2)/omega1), 
-        e = e, g = g, Delta = g[1]^3 - 27 * g[2]^2, Eta = Eta, 
+        e = e, g = g, Delta = Delta, Eta = Eta, 
         is.AnS = FALSE, given = given)
     class(out) <- "parameters"
     return(out)
@@ -1302,10 +1297,8 @@ function (z, g = NULL, Omega = NULL, params = NULL, use.fpp = TRUE,
     if (use.fpp) {
         z <- fpp(z, p = 2 * params$Omega)
     }
-    e <- params$e
     q <- params$q
     omega <- params$Omega[1]
-    Delta <- params$Delta
     v <- pi * z/(2 * omega)
     out <- -pi^3/(4 * omega^3) * theta2(v, q = q, ...) * theta3(v, 
         q = q, ...) * theta4(v, q = q, ...) * theta1dash(0, q = q, 
