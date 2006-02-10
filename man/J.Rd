@@ -10,11 +10,8 @@ lambda function, and Delta
 }
 \usage{
 J(tau, use.theta = TRUE, ...)
-J(tau, use.theta = TRUE, ...)
 lambda(tau, ...)
-
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{tau}{\eqn{\tau}{tau}; it is assumed that \code{Im(tau)>0}}
   \item{use.theta}{Boolean, with default \code{TRUE} meaning to use the

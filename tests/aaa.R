@@ -4,8 +4,17 @@ require(MASS)
 safety.factor <- 100
 "test" <- function(x,abs.error=1e-6){stopifnot(abs(x)<abs.error*safety.factor)}
 
-# eqs 16.28.1-16.28.5, p576:
 
+
+# equations 16.20.1 to 16.20.3, Jacobi's imaginary transform:
+u <-  seq(from=1,to=4+1i,len=10)
+m <- 0.1+0.1123312i
+test(sn(1i*u,m=m) - 1i*sc(u,m=1-m))
+test(cn(1i*u,m=m) -    nc(u,m=1-m))
+test(dn(1i*u,m=m) -    dc(u,m=1-m))
+
+
+# eqs 16.28.1-16.28.5, p576:
 test(abs(e16.28.1(z=1:600,m=0.234+0.1i)),abs.error=2e-15)
 test(abs(e16.28.2(z=1:600,m=0.234+0.1i)),abs.error=2e-15)
 test(abs(e16.28.3(z=1:600,m=0.234+0.1i)),abs.error=2e-15)

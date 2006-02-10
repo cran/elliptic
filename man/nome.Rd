@@ -15,8 +15,14 @@ nome.k(k)
   \item{k}{Real parameter with \eqn{k=m^2}{k=m^2}}
 }
 \author{Robin K. S. Hankin}
-\examples{
-3+3
-  }
+\note{
+  The nome is defined as \eqn{e^{-i\pi K'/K}}{exp(-pi*i*K'/K)}, where
+  \eqn{K} and \eqn{iK'} are the quarter periods (see page 576 of
+  AMS-55).  These are calculated using function \code{K.fun()}. 
 }
+\seealso{\code{\link{K.fun}}} 
+\examples{
+nome(0.09)  # AMS-55 give 0.00589414 in example 7 on page 581
+}
+
 \keyword{math}

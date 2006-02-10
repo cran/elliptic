@@ -23,10 +23,11 @@ Journal of Numerical Analysis, vol 10, pp119-128, 1990
 }
 \author{Robin K. S. Hankin}
 \examples{
-K.fun(m=0.4)
+K.fun(0.09)  # AMS-55 give 1.60804862 in example 7 on page 581
 
+# next example not run because: (i), it needs gsl; (ii) it gives a warning.
 \dontrun{
-K.fun(0.4,strict=F, maxiter=5) - ellint_Kcomp(sqrt(0.4))
+K.fun(0.4,strict=F, maxiter=4) - ellint_Kcomp(sqrt(0.4))
 }
 }
 \keyword{math}

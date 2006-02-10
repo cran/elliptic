@@ -68,7 +68,7 @@ g3.fun.vectorized(b, nmax=50, tol=1e-10, give=FALSE)
   Chandrasekharan's formula on page 83.  This is generally slower than
   the theta function approach
 
-  Functions \code{g2.fun.lambert()} and \code{g3.fun.lambet()} use a 
+  Functions \code{g2.fun.lambert()} and \code{g3.fun.lambert()} use a 
   Lambert series to accelerate Chandrasekharan's formula.  In general,
   it is a little better than the divisor form.
   

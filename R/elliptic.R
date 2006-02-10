@@ -581,6 +581,7 @@ function (n, print = FALSE, give.series = FALSE)
     a[length(a)] <- "1/1"
     if (print) {
         print(a)
+        return(invisible(a))
     }
     a <- strsplit(a, "/")
     a <- do.call("rbind", a)

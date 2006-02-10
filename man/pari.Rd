@@ -46,7 +46,7 @@ vectorize any of the calls.
 \dontrun{
 z  <- seq(from=1,to=3+2i,len=34)
 p <- c(1,1i)
-plot(abs(P.pari(z=z,Omega=p) - P(z=z,parameters(Omega=p))))
+plot(abs(P.pari(z=z,Omega=p) - P(z=z,Omega=p)))
 plot(zeta(z=z,params=parameters(Omega=p))- P.pari(z=z,Omega=c(p),pari.fun="ellzeta"))
 
 }

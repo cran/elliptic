@@ -17,9 +17,14 @@ default = 0, col="black", r0=1, power=1, show.scheme=FALSE, ...)
     code for details, as I add new schemes from time to time and the
     code would in any case dominate anything written here.
 
-    Default of zero corresponds to Thaller (1998): see references.  
+    A default of zero corresponds to Thaller (1998): see references.  
     For no colour (ie a white background), set \code{scheme} to a
     negative number.
+
+    If \code{scheme} does not correspond to a built-in function, the
+    \code{switch()} statement \dQuote{drops through} and provides a
+    white background (use this to show just real or imaginary contours;
+    a value of \eqn{-1} will always give this behaviour)
 
     If not numeric, \code{scheme} is interpreted as a function that
     produces a colour; see examples section below.  See details section

@@ -58,26 +58,72 @@ abs(integrate.contour(WeierstrassP,u,udash)) # should be zero
 
 
 
-# Now integrate over a semicircle.  Observe how it's better to split the
-# path into two separate pieces.
+# Now integrate f(x) = exp(1i*x)/(1+x^2) from -Inf to +Inf along the
+# real axis, using the Residue Theorem.  This tells us that integral of
+# f(z) along any closed path is equal to pi*2i times the sum of the
+# residues inside it.  Take a semicircular path P from -R to +R along
+# the real axis, then following a semicircle in the upper half plane, of
+# radius R to close the loop.  Now consider large R.  Then P encloses a
+# pole at +1i [there is one at -1i also, but this is outside P, so
+# irrelevent here] at which the residue is -1i/2e.  Thus the integral of
+# f(z) = 2i*pi*(-1i/2e) = pi/e along P; the contribution from the
+# semicircle tends to zero as R tends to infinity; thus the integral
+# along the real axis is the whole path integral, or pi/e.
 
+# We can now reproduce this result analytically.  First, choose an R:
 R <- 400
+
+# now define P.  First, the semicircle, u1:
 u1     <- function(x){R*exp(pi*1i*x)}
 u1dash <- function(x){R*pi*1i*exp(pi*1i*x)}
+
+# and now the straight part along the real axis, u2:
 u2     <- function(x){R*(2*x-1)}
 u2dash <- function(x){R*2}
 
+# Better define the function:
 f <- function(z){exp(1i*z)/(1+z^2)}
+
+# OK, now carry out the path integral.  I'll do it explicitly, but note
+# that the contribution from the first integral should be small:
 
 answer.approximate <-
     integrate.contour(f,u1,u1dash) +
     integrate.contour(f,u2,u2dash) 
 
+# And compare with the analytical value:
 answer.exact <- pi/exp(1)
 abs(answer.approximate - answer.exact)
 
 
-# Now try integrating over a triangle, with base on the real axis:
+# Now try the same thing but integrating over a triangle, using
+# integrate.segments().  Use a path P' with base from -R to +R along the
+# real axis, closed by two straight segments, one from +R to 1i*R, the
+# other from 1i*R to -R:
+
 abs(integrate.segments(f,c(-R,R,1i*R))- answer.exact)
+
+
+
+# Now in the interests of search engine findability, here is an
+# application of Cauchy's integral formula, or Cauchy's formula.  I will
+# use it to find sin(0.8):
+
+u     <- function(x){exp(pi*2i*x)}
+udash <- function(x){pi*2i*exp(pi*2i*x)}
+
+g <- function(z){sin(z)/(z-0.8)}
+
+a <- 1/(2i*pi)*integrate.contour(g,u,udash)
+
+
+abs(a-sin(0.8))
+
+
+
 }
+
+
+
+
 \keyword{math}

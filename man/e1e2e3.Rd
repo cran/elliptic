@@ -54,10 +54,10 @@ eee.cardano(g)
 
     Just to be specfic: \code{e1e2e3(g=parameters(...))} will fail.  It
     would be pointless anyway, because \code{parameters()} returns
-    (inter alia) \eqn{e1, e2, e3}{e1, e2, e3} anyway.
+    (inter alia) \eqn{e_1, e_2, e_3}{e1, e2, e3} anyway.
 
     There is considerable confusion about the order of \eqn{e_1}{e1},
-    \eqn{e_2}{e2} and \eqn{e_3}{e3},  essentially due to Abramowitz and
+    \eqn{e_2}{e2} and \eqn{e_3}{e3}, essentially due to Abramowitz and
     Stegun's definition of the half periods being inconsistent with that
     of Chandrasekharan's, and Mathematica's.  It is not possible to
     reconcile A and S's notation for theta functions with
@@ -72,7 +72,7 @@ eee.cardano(g)
     The other scheme to rescue 18.10.5 would be to define
     \eqn{(\omega_1,\omega_3)}{(omega1,omega3)} as a primitive pair, and
     to require
-    \eqn{\omega2=-\omega_1-\omega_3}{omega2=-omega1-omega3}.  This is
+    \eqn{\omega_2=-\omega_1-\omega_3}{omega2=-omega1-omega3}.  This is
     the method adopted by Mathematica; it is no more inconsistent with
     ams55 than the solution used in package \pkg{elliptic}.  However,
     this scheme suffers from the

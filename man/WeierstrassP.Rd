@@ -43,7 +43,12 @@ zeta(z, g=NULL, Omega=NULL, params=NULL, use.fpp=TRUE, ...)
     expansion.  Usually, the theta function form is faster, but not
     always.}
   \item{...}{Extra parameters passed to \code{theta1()} and \code{theta1dash()}.}
-  }
+}
+\references{
+  R. K. S. Hankin.  \dQuote{Introducing Elliptic, an R package for
+    Elliptic and Modular Functions}.  Journal of Statistical Software,
+  Volume 15, Issue 7.  February 2006.
+}  
 \author{Robin K. S. Hankin}
 \note{
   In this package, function \code{sigma()} is the Weierstrass sigma

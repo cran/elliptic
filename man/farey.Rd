@@ -18,9 +18,9 @@ farey(n, print=FALSE, give.series = FALSE)
 }
 \details{
   If \code{give.series} takes its default value of \code{FALSE}, return
-  an array \code{a} of dimension \code{c(2,2,u)} where \code{u} is a
-  (complicated) function of \code{n}.  The slices \code{a[,,i]}, viewed
-  as matrices, have determinant 1.
+  a matrix \code{a} of dimension \code{c(u,2)} where \code{u} is a
+  (complicated) function of \code{n}.  The rows of \code{a} are the 
+
 }
 
 \references{An introduction to the theory of numbers (fifth edition),
