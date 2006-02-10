@@ -21,8 +21,8 @@ eee.cardano(g)
     \eqn{P(\omega_3)}{P(omega3)}.  Setting to  \code{FALSE} means to
     return the solutions of the cubic equation directly: this is much
     faster, but is not guaranteed to find the \eqn{e_i}{e} in the
-    right order (the roots are found according to the vagiaries of
-    \code{polyroot()}).}
+    right order (the roots are found according to the vagaries of
+    \code{polyroot()})}
   \item{AnS}{Boolean, with default \code{TRUE} meaning to define
     \eqn{\omega_3}{omega3} as per ams-55, and \code{FALSE} meaning to
     follow Whittaker and Watson, and define
@@ -32,14 +32,14 @@ eee.cardano(g)
     also consistent with Chandrasekhara except the factor of 2.
 
     Also note that setting \code{AnS} to \code{TRUE} forces the
-    \eqn{e}{e} to be real.}
+    \eqn{e}{e} to be real}
   \item{Omega}{A pair of primitive half periods, if known.  If supplied, the
     function uses them to calculate approximate values for the three
     \eqn{e}{e}s (but supplies values calculated by \code{polyroot()},
     which are much more accurate).  The function needs the approximate
     values to determine in which order the \eqn{e}{e}s should be, as
     \code{polyroot()} returns roots in whichever order the polynomial
-    solver gives them in.}
+    solver gives them in}
   \item{tol}{Real, relative tolerance criterion for terminating Laurent
     summation} 
 }

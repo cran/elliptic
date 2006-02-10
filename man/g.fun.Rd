@@ -108,8 +108,5 @@ omega1 <- (omega2-omega2dash)/2   ## From figure 18.1, p630
 (g2 <- g2.fun(c(omega1,omega2)))
 (g3 <- g3.fun(c(omega1,omega2)))
 e1e2e3(Re(c(g2,g3)))
-
-
-  }
 }
 \keyword{math}

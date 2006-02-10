@@ -33,7 +33,6 @@ z <- 0.5-0.3i
 g <- c(1.1-0.2i, 1+0.4i)
 series <- ck(15,g=g)
 1/z^2+sum(series*(z^2)^(0:14)) - P(z,g=g) #should be zero
+}
 
-}
-}
 \keyword{math}

@@ -2,7 +2,7 @@
 \alias{massage}
 \title{Massages numbers near the real line to be real}
 \description{
-Returns the Real part of numbers near the real line}
+Returns the Real part of numbers near the real line
 }
 \usage{
 massage(z, tol = 1e-10)

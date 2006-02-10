@@ -6,7 +6,7 @@
 \alias{totient}
 \title{Number theoretic functions}
 \description{
-Various useful number theoretic functions}
+Various useful number theoretic functions
 }
 \usage{
 divisor(n,k=1)

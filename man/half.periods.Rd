@@ -2,7 +2,7 @@
 \alias{half.periods}
 \title{Calculates half periods in terms of e}
 \description{
-Calculates half periods in terms of \eqn{e}}
+Calculates half periods in terms of \eqn{e}
 }
 \usage{
 half.periods(ignore=NULL, e=NULL, g=NULL, primitive)

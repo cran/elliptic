@@ -70,7 +70,7 @@ P(z=0.1 + 0.03i,g=c(-10,2))
 ## Now a nice little plot of the zeta function:
 x <- seq(from=-4,to=4,len=100)
 z <- outer(x,1i*x,"+")
-view(x,x,limit(zeta(z,c(1+1i,2-3i))),nlevels=6,code=1)
+view(x,x,limit(zeta(z,c(1+1i,2-3i))),nlevels=6,scheme=1)
 
 
 #now figure 18.5, top of p643:
@@ -109,7 +109,5 @@ dotted.lines <-
 
 plot(P(z=solid.lines,params=p),xlim=c(-4,4),ylim=c(-6,0),type="l",asp=1)
 lines(P(z=dotted.lines,params=p),xlim=c(-4,4),ylim=c(-6,0),type="l",lty=2)
-}
-
 }
 \keyword{math}
