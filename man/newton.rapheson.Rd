@@ -19,8 +19,7 @@ newton.rapheson(initial, f, fdash, maxiter, tol = .Machine$double.eps)
 }
 \details{
   Bog-standard
-  }
-  
+}
 \value{
   Returns \eqn{z}{z} with \eqn{|f(z)|<tol}{|f(z)|<tol}
 }

@@ -19,12 +19,12 @@ parameters(Omega=NULL, g=NULL, description=NULL)
 }
 \arguments{
   \item{Omega}{Vector of length two, containing the \strong{half
-      periods} \eqn{(\omega_1,\omega_2)}{(omega1,omega2)}.}
+      periods} \eqn{(\omega_1,\omega_2)}{(omega1,omega2)}}
   \item{g}{Vector of length two:
     \eqn{(g_2,g_3)}{(g2,g3)}}
   \item{description}{string containing \dQuote{equianharmonic},
     \dQuote{lemniscatic}, or \dQuote{pseudolemniscatic}, to specify one
-    of A and S's special cases.}    
+    of A and S's special cases}    
 }
 \value{
   Returns a list with the following items:
@@ -64,7 +64,7 @@ parameters(Omega=NULL, g=NULL, description=NULL)
     \eqn{x^3-g_2x-g_3=0}{x^3-g2*x-g3=0}; but this method cannot be used in
     isolation because the roots may be returned in the wrong order.}
     \item{Delta}{The quantity \eqn{g_2^3-27g_3^2}{g2^3-27*g3^2}, often
-      denoted \eqn{\Delta}{Greek capital Delta}.}
+      denoted \eqn{\Delta}{Greek capital Delta}}
     \item{Eta}{Complex vector of length 3 often denoted
       \eqn{\eta}{by the greek letter eta}.  Here
       \eqn{\eta=(\eta_1,\eta_2,\eta_3)}{eta=(eta_1,eta_2,eta_3)} are defined
@@ -72,12 +72,12 @@ parameters(Omega=NULL, g=NULL, description=NULL)
       \eqn{\eta_i=\zeta(\omega_i)}{eta_i\zeta(omega_i)} for \eqn{i=1,2,3}.
       
       Note that the name of this element is capitalized to avoid confusion 
-      with function \code{eta()}.}
+      with function \code{eta()}}
     \item{is.AnS}{Boolean, with \code{TRUE} corresponding to real
       invariants, as per Abramowitz and Stegun}
     \item{given}{character string indicating which parameter was supplied.
       Currently, one of \dQuote{\code{o}} (omega), or  \dQuote{\code{g}}
-      (invariants).}
+      (invariants)}
   }
 \author{Robin K. S. Hankin}
 \examples{

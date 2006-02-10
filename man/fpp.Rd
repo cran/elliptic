@@ -17,7 +17,7 @@ mn(z, p)
   \item{p}{Vector of length two with first element the first period and
     second element the second period.  Note that \eqn{p}{p} is the
     period, so \eqn{p_1=2\omega_1}, where \eqn{\omega_1}{omega1} is the
-    half period.}
+    half period}
   \item{give}{Boolean, with  \code{TRUE} meaning to return M and N, and
     default \code{FALSE} meaning to return just the congruent values}
 }

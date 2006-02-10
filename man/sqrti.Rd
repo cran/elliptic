@@ -11,9 +11,6 @@ sqrti(x)
 \arguments{
   \item{x}{Vector to return square root of}
 }
-\details{
-none
-}
 \author{Robin K. S. Hankin}
 \examples{
 sqrti(1:10)  #real

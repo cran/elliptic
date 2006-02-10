@@ -11,6 +11,12 @@
 \alias{e18.10.5}
 \alias{e18.10.6}
 \alias{e18.10.7}
+\concept{Weierstrass}
+\concept{Weierstrass P function}
+\concept{Weierstrass elliptic function}
+\concept{Weierstrass zeta function}
+\concept{Weierstrass sigma function}
+\concept{Elliptic functions}
 \title{Weierstrass P and related functions}
 \description{
 Weierstrass elliptic function and its derivative, Weierstrass sigma
@@ -25,27 +31,27 @@ zeta(z, g=NULL, Omega=NULL, params=NULL, use.fpp=TRUE, ...)
 \arguments{
   \item{z}{Primary complex argument}
   \item{g}{Invariants \code{g=c(g2,g3)}.  Supply exactly one of
-    (\code{g}, \code{Omega}, \code{params}).}
-  \item{Omega}{Half periods}.
+    (\code{g}, \code{Omega}, \code{params})}
+  \item{Omega}{Half periods}
   \item{params}{Object with class \dQuote{\code{parameters}} (typically
     provided by  \code{parameters()}).  If not of this class, interpret
-    as a two element vector \code{g=c(g2,g3)}.}
+    as a two element vector \code{g=c(g2,g3)}}
   \item{use.fpp}{Boolean, with default \code{TRUE} meaning to calculate
     \eqn{P(z^C)}{P(z^C)} where \eqn{z^C}{z^C} is congruent to \eqn{z}{z}
     in the period lattice.  The default means that accuracy is greater
     for large \eqn{z}{z} but has the deficiency that slight
-    discontinuities may appear near parallelogram boundaries.}
+    discontinuities may appear near parallelogram boundaries}
   \item{give.all.3}{Boolean, with default \code{FALSE} meaning to return
     \code{P(z)} and \code{TRUE} meaning to return the other forms given
-    in equation 18.10.5, p650.  Use \code{TRUE} to check for accuracy.}
+    in equation 18.10.5, p650.  Use \code{TRUE} to check for accuracy}
   \item{use.theta}{Boolean, with default \code{TRUE} meaning to use
     theta function forms, and \code{FALSE} meaning to use a Laurent
     expansion.  Usually, the theta function form is faster, but not
-    always.}
+    always}
   \item{...}{Extra parameters passed to \code{theta1()} and \code{theta1dash()}.}
 }
 \references{
-  R. K. S. Hankin.  \dQuote{Introducing Elliptic, an R package for
+  R. K. S. Hankin.  \emph{Introducing Elliptic, an R package for
     Elliptic and Modular Functions}.  Journal of Statistical Software,
   Volume 15, Issue 7.  February 2006.
 }  

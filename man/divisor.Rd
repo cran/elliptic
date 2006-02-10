@@ -4,6 +4,7 @@
 \alias{factorize}
 \alias{mobius}
 \alias{totient}
+\concept{Multiplicative functions}
 \title{Number theoretic functions}
 \description{
 Various useful number theoretic functions
@@ -16,12 +17,11 @@ mobius(n)
 totient(n)
 }
 \arguments{
-  \item{n}{Integer}
-  \item{k}{Integer specifying second argument to sigma function}
+  \item{n,k}{Integers}
 }
 \details{
   Functions \code{primes()} and \code{factorize()} cut-and-pasted from
-  Bill Venebles's conf.design package, version 0.0-3.  Function
+  Bill Venables's conf.design package, version 0.0-3.  Function
   \code{primes(n)} returns a vector of all primes not exceeding
   \code{n}; function \code{factorize(n)} returns an integer vector of
   nondecreasing primes whose product is \code{n}.
@@ -35,12 +35,14 @@ totient(n)
   the divisors of \code{n}.  Setting \eqn{k=0} corresponds to
   \eqn{d(n)}, which gives the number of divisors of \code{n}. 
 
-  \code{mobius()} is the M\"{o}bius function (p234), giving zero if
-  \code{n} has a repeated prime factor, and \eqn{(-1)^q} where
+  Function \code{mobius()} is the M\"{o}bius function (p234), giving
+  zero if \code{n} has a repeated prime factor, and \eqn{(-1)^q} where
   \eqn{n=p_1p_2\ldots p_q}{n=p_1*p_2*...p_q} otherwise.
 
-  \code{totient()} is Euler's totient function (p52), giving the number
-  of integers smaller than \code{n} and relatively prime to it.
+  Function \code{totient()} is Euler's totient function (p52), giving
+  the number of integers smaller than \code{n} and relatively prime to
+  it.
+  
 }
 \references{G. H. Hardy and E. M. Wright, 1985.  \emph{An
 introduction to the theory of numbers} (fifth edition).
@@ -51,7 +53,7 @@ introduction to the theory of numbers} (fifth edition).
   avoid conflicts with Weierstrass's \eqn{\sigma}{sigma} function (which
   ought to take priority in this context).
 }
-\author{Robin K. S. Hankin and Bill Venebles (\code{primes()} and
+\author{Robin K. S. Hankin and Bill Venables (\code{primes()} and
 \code{factorize()})}
 \examples{
 mobius(1)

@@ -19,13 +19,13 @@ P.pari(z,Omega,pari.fun="ellwp",numerical=TRUE)
     PARI.  Values of \code{ellwp}, \code{ellsigma}, and \code{ellzeta},
     are acceptable here for the \eqn{\wp}{P} function, the
     \code{\sigma}{sigma} function, and the \eqn{\zeta}{zeta} function
-    respectively.}   
+    respectively}   
   \item{numerical}{Boolean with default \code{TRUE} meaning to return
     the complex value returned by PARI, and \code{FALSE} meaning to
     return the ascii string returned by PARI}
 }
 \details{
-This function calls PARI via an R \code{system()} call.
+  This function calls PARI via an R \code{system()} call.
 }
 \value{
   Returns an object with the same attributes as \code{z}.
@@ -40,10 +40,9 @@ directly into \code{gp}.
 The PARI system clearly has more powerful syntax than the basic version
 that I'm using here, but I can't (for example) figure out how to
 vectorize any of the calls.
-
 }
 \examples{
-\dontrun{
+\dontrun{ #this in a dontrun environment because it requires pari/gp 
 z  <- seq(from=1,to=3+2i,len=34)
 p <- c(1,1i)
 plot(abs(P.pari(z=z,Omega=p) - P(z=z,Omega=p)))

@@ -23,7 +23,10 @@ available (for example \code{congruence(c(4,6),2)}).  In this case, extra rows
 are added and the matrix is no longer square.
 
 }
-\references{Hardy and Wright}
+\references{
+    G. H. Hardy and  E. M. Wright 1985.  \emph{An introduction to the
+      theory of numbers}, Oxford University Press (fifth edition)
+}
 \author{Robin K. S. Hankin}
 \note{
   This function does not generate \emph{all} unimodular matrices with a
@@ -38,16 +41,15 @@ are added and the matrix is no longer square.
   
     Now if the first row is \code{c(1,23)}, for example, then the second
     row need only be of the form \code{c(n,1)} where \code{n} is any
-    integer.  There are thus an infinite number of  unimodular matrices
+    integer.  There are thus an infinite number of unimodular matrices
     whose first row is \code{c(1,23)}.  While this is (somewhat)
     pathological, consider matrices with a first row of, say,
     \code{c(2,5)}.  Then the second row could be \code{c(1,3)}, or
-    \code{c(3,8)} or \code{c(5,13)}.  Function \code{congruence()} will return
-    only the first of these.
+    \code{c(3,8)} or \code{c(5,13)}.  Function \code{congruence()} will
+    return only the first of these.
 
     To systematically generate all unimodular matrices, use
-    \code{unimodular()}, which uses Farey sequences.
-    
+    \code{unimodular()}, which uses Farey sequences.    
   }
 
 \seealso{\code{\link{unimodular}}}

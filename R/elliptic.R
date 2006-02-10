@@ -1984,14 +1984,13 @@ function (x, y, z, scheme = 0, real.contour = TRUE, imag.contour = real.contour,
         z[is.na(z)] <- default
         z[is.infinite(z)] <- default
     }
-    image(x, y, z = jj, col = f(z), asp = 1, ...)
+    suppressWarnings(image(x, y, z = jj, col = f(z), asp = 1, ...))
     if (real.contour) {
-        contour(x, y, Re(z), add = TRUE, lty = 1, col = col, 
-            ...)
+      suppressWarnings(contour(x, y, Re(z), add = TRUE, lty = 1, col = col, 
+                               ...))
     }
     if (imag.contour) {
-        contour(x, y, Im(z), add = TRUE, lty = 2, col = col, 
-            ...)
+      suppressWarnings(contour(x, y, Im(z), add = TRUE, lty = 2, col = col, ...))
     }
 }
 "zeta" <-

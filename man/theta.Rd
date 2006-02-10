@@ -40,19 +40,18 @@ H (u, m, ...)
 H1(u, m, ...)
 }
 \arguments{
-  \item{z}{Complex argument of function}
-  \item{u}{Complex argument of function}
+  \item{z,u}{Complex argument of function}
   \item{ignore}{Dummy variable whose intention is to force the user to
     name the second argument either \code{m} or \code{q}.}
   \item{m}{Does not seem to have a name.   The variable is introduced in
-    section 16.1, p569.}
+    section 16.1, p569}
   \item{q}{The nome \eqn{q}{q}, defined in section 16.27, p576}
   \item{give.n}{Boolean with default \code{FALSE} meaning to return the
     function evaluation, and \code{TRUE} meaning to return a two element
     list, with first element the function evaluation, and second element
-    the number of iterations used.}
+    the number of iterations used}
   \item{maxiter}{Maximum number of iterations used.  Note that the
-    series generally converge very quickly.}
+    series generally converge very quickly}
   \item{...}{In functions that take it, extra arguments passed to
     \code{theta1()} et seq; notably, \code{maxiter}}
 }
@@ -70,10 +69,13 @@ H1(u, m, ...)
   
 }
 \value{
-Returns a complex-valued object with the same attributes as either
-\code{z}, or (\code{m} or \code{q}), whichever wasn't recycled.
+  Returns a complex-valued object with the same attributes as either
+  \code{z}, or (\code{m} or \code{q}), whichever wasn't recycled.
 }
-\references{A&S}
+\references{
+  M. Abramowitz and I. A. Stegun 1965.  \emph{Handbook of mathematical
+  functions}.  New York: Dover
+}  
 \author{Robin K. S. Hankin}
 \seealso{\code{\link{theta.neville}}}
 \examples{

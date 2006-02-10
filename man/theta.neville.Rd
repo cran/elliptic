@@ -18,6 +18,7 @@
 \alias{e16.38.2}
 \alias{e16.38.3}
 \alias{e16.38.4}
+\concept{Neville's theta functions}
 \title{Neville's form for the theta functions}
 \description{
 Neville's notation for theta functions as per section 16.36 of
@@ -38,20 +39,12 @@ theta.n(u, m, method = "16.36.7", ...)
   \item{...}{Extra arguments passed to the method function, such as
     \code{maxiter}}
   }
-\details{
-
+\references{
+  M. Abramowitz and I. A. Stegun 1965.  \emph{Handbook of mathematical
+  functions}. New York: Dover
 }
-
-\references{A and S}
 \author{Robin K. S. Hankin}
-\note{
-  fish
-  
-}
 \examples{
-
-
-
 #Figure 16.4.
 m <- 0.5
 K <- K.fun(m)

@@ -34,22 +34,22 @@ g3.fun.vectorized(b, nmax=50, tol=1e-10, give=FALSE)
 \item{b}{Half periods.  NB: the arguments
   are the \strong{half periods} as per AMS55!
   In these functions, argument \code{b} is interpreted as per
-  \code{p1.tau()}.}
+  \code{p1.tau()}}
 \item{nmax}{Maximum number of terms to sum.  See details section for
-  more discussion.}
+  more discussion}
 \item{tol}{Numerical tolerance for stopping: summation stops when adding
-  an additional term makes les}
+  an additional term makes less}
 \item{strict}{Boolean, with default (where taken) \code{TRUE} meaning to
   \code{stop()} if convergence is not achieved in \code{nmax} terms.
   Setting to \code{FALSE} returns the partial sum and a warning.}
 \item{give}{Boolean, with default (where taken) \code{TRUE} meaning to
   return the partial sums.  See examples section for an example of this
-  argument in use.}
-\item{...}{In functions \code{g.fun()}, \code{g2.fun()} and \code{g3.fun()}, extra
-  arguments passed to \code{theta1()} and friends.}
+  argument in use}
+\item{...}{In functions \code{g.fun()}, \code{g2.fun()} and
+  \code{g3.fun()}, extra arguments passed to \code{theta1()} and friends}
 \item{use.first}{In function \code{g2.fun()} and \code{g3.fun()},
   Boolean with default \code{TRUE} meaning to use Wolfram's first formula
-  (\strong{remember to cite this}) and \code{FALSE} meaning to use the second.}
+  (\strong{remember to cite this}) and \code{FALSE} meaning to use the second}
 }
 \details{
   Functions \code{g2.fun()} and \code{g3.fun()} use theta functions
@@ -92,7 +92,9 @@ g3.fun.vectorized(b, nmax=50, tol=1e-10, give=FALSE)
   \dQuote{default} functions \code{g2.fun()} and \code{g3.fun()},
   which use theta functions, converge faster still.
 }
-
+\references{
+  Mathematica website
+}
 \author{Robin K. S. Hankin}
 \examples{
 ## Example 4, p664, LHS:

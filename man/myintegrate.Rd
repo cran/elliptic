@@ -2,6 +2,13 @@
 \alias{myintegrate}
 \alias{integrate.contour}
 \alias{integrate.segments}
+\concept{Complex integration}
+\concept{Path integration}
+\concept{Contour integration}
+\concept{Cauchy's theorem}
+\concept{Cauchy's integral theorem}
+\concept{Cauchy's formula}
+\concept{Residue theorem}
 \title{Complex integration}
 \description{
   Integration of complex valued functions along the real axis
@@ -16,21 +23,20 @@ integrate.segments(f,points, close=TRUE, ...)
 }
 \arguments{
   \item{f}{function, possibly complex valued}
-  \item{lower}{Lower limit of integration in \code{myintegrate()}; a
-    real number}
-  \item{upper}{Upper limit of integration in \code{myintegrate()}; a
-    real number (for complex values, use \code{integrate.contour()} or \code{integrate.segments()})}
-  \item{...}{Extra arguments passed to \code{integrate()}}
-  \item{u}{Function mapping \eqn{[0,1]}{[0,1]} to the contour.  For a
-    closed contour, require that \eqn{u(0)=u(1)}{u(0)=u(1)}.}
-  \item{udash}{Derivative of \code{u}.}
+  \item{lower,upper}{Lower and upper limits of integration in \code{myintegrate()}; 
+    real numbers (for complex values, use \code{integrate.contour()} or
+    \code{integrate.segments()})}
+  \item{u}{Function mapping \eqn{[0,1]} to the contour.  For a
+    closed contour, require that \eqn{u(0)=u(1)}}
+  \item{udash}{Derivative of \code{u}}
   \item{points}{In function \code{integrate.segments()}, a vector of complex
-numbers.  Integration will be taken over straight segments joining
-consecutive elements of \code{points}.}
-  \item{close}{In  function \code{integrate.segments()}, a Boolean
-variable with default \code{TRUE} meaning to integrate along the segment
-from \code{points[n]} to \code{points[1]} in addition to the internal
-segments.} 
+    numbers.  Integration will be taken over straight segments joining
+    consecutive elements of \code{points}}
+  \item{close}{In function \code{integrate.segments()}, a Boolean
+    variable with default \code{TRUE} meaning to integrate along the segment
+    from \code{points[n]} to \code{points[1]} in addition to the internal
+    segments}
+  \item{...}{Extra arguments passed to \code{integrate()}}
 }
 \author{Robin K. S. Hankin}
 \examples{
@@ -122,8 +128,4 @@ abs(a-sin(0.8))
 
 
 }
-
-
-
-
 \keyword{math}

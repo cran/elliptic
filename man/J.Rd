@@ -1,12 +1,19 @@
 \name{J}
 \alias{J}
 \alias{lambda}
+\concept{Klein's modular function}
+\concept{Klein's modular function J}
+\concept{Klein's invariant function}
+\concept{Dedekind's valenz function}
+\concept{Dedekind's valenz function J}
+\concept{lambda function}
+\concept{Dedekind}
+
 \title{Various modular functions}
 \description{
-  Modular functions including 
-Klein's modular function J (aka Dedekind's Valenz function J, aka the
-Klein invariant function, aka Klein's absolute invariant), the
-lambda function, and Delta
+  Modular functions including Klein's modular function J (aka Dedekind's
+  Valenz function J, aka the Klein invariant function, aka Klein's
+  absolute invariant), the lambda function, and Delta.
 }
 \usage{
 J(tau, use.theta = TRUE, ...)
@@ -20,7 +27,9 @@ lambda(tau, ...)
   \item{\dots}{Extra arguments sent to either \code{theta1()} et seq, or
     \code{g2.fun()} and \code{g3.fun()} as appropriate}
 }
-\references{Chandrasekharan}
+\references{
+  K. Chandrasekharan 1985. \emph{Elliptic functions},  Springer-Verlag.
+}
 \author{Robin K. S. Hankin}
 \examples{
  J(2.3+0.23i,use.theta=TRUE)
@@ -46,8 +55,8 @@ lambda(tau, ...)
  z <- outer(x,1i*y,"+")
  f <- lambda(z,maxiter=40)
  g <- J(z)
- view(x,y,f,scheme=4,real.contour=FALSE,main="try higher resolution")
- view(x,y,g,scheme=4,real.contour=FALSE,main="try higher resolution")
+ view(x,y,f,scheme=04,real.contour=FALSE,main="try higher resolution")
+ view(x,y,g,scheme=10,real.contour=FALSE,main="try higher resolution")
 
 }
 \keyword{math}

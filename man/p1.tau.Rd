@@ -21,7 +21,6 @@ p1.tau(b)
 
   Otherwise, interpret as a vector of
   \eqn{\tau=\omega_1/\omega_2}{tau=omega1/omega2}.
-  
 }
 \value{
   Returns a two-component list:

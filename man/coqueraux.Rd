@@ -17,12 +17,12 @@ coqueraux(z, g, N = 5, use.fpp = FALSE, give = FALSE)
   \item{use.fpp}{Boolean, with default \code{FALSE} meaning to \emph{not}
     reduce \code{z} to the fpp.  Setting to \code{TRUE} reduces
     \code{z} to the fpp via\code{parameters()}: this is more
-    accurate (see example) but slower.}
+    accurate (see example) but slower}
   \item{give}{Boolean, with \code{TRUE} meaning to return an estimate of
     the error, and \code{FALSE} meaning to return just the value}
 }
 \references{
-  R. Coqueraux, 1990.  \dQuote{Iterative method for calculation of the
+  R. Coqueraux, 1990.  \emph{Iterative method for calculation of the
     Weierstrass elliptic function}, IMA Journal of Numerical Analysis,
   volume 10, pp119-128
 }

@@ -17,7 +17,7 @@ is.primitive(p, n = 3, tol = 1e-05)
   \item{give.answers}{Boolean, with \code{TRUE} meaning to return extra
     information (unimodular matrix and the magnitudes of the primitive
     periods) and default \code{FALSE} meaning to return just the
-    primitive periods.}
+    primitive periods}
 }
 \details{
   Primitive periods are not unique.  This function follows
@@ -31,7 +31,9 @@ is.primitive(p, n = 3, tol = 1e-05)
   \item{p}{The pair of primitive periods}
   \item{mags}{The magnitudes of the primitive periods}
 }
-\references{Chandrasekharan}
+\references{
+  K. Chandrasekharan 1985. \emph{Elliptic functions},  Springer-Verlag
+  }
 \author{Robin K. S. Hankin}
 \note{Here, \dQuote{unimodular} includes the case of determinant minus
   one.

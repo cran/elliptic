@@ -2,7 +2,7 @@
 \alias{limit}
 \title{Limit the magnitude of elements of a vector}
 \description{
-  Deals appropriately with objects with a few very large elements.
+  Deals appropriately with objects with a few very large elements
 }
 \usage{
 limit(x, upper=quantile(Re(x),0.99,na.rm=TRUE), lower=quantile(Re(x),0.01,na.rm=TRUE), na = FALSE)
@@ -14,7 +14,7 @@ limit(x, upper=quantile(Re(x),0.99,na.rm=TRUE), lower=quantile(Re(x),0.01,na.rm=
   \item{na}{Boolean, with default \code{FALSE} meaning to \dQuote{clip}
     \code{x} (if real) by setting elements of \code{x} with \code{x>high} to
     \code{high}; if \code{TRUE}, set such elements to \code{NA}.
-    If \code{x} is complex, this argument is ignored. }
+    If \code{x} is complex, this argument is ignored}
 }
 \details{
   If \code{x} is complex, \code{low} is ignored and the function returns

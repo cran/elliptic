@@ -29,7 +29,10 @@ e18.10.9(parameters)
 Returns a complex vector of length three: \eqn{e_1}{e_1},
 \eqn{e_2}{e_2}, \eqn{e_3}{e_3}
 }
-\references{AMS-55}
+\references{
+  M. Abramowitz and I. A. Stegun 1965. \emph{Handbook of Mathematical
+    Functions.}  New York, Dover.
+}
 \author{Robin K. S. Hankin}
 \note{
   A good check for the three \eqn{e}{e}'s being in the right order.

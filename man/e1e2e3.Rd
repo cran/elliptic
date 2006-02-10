@@ -29,7 +29,7 @@ eee.cardano(g)
     \eqn{\omega_1}{omega1} and \eqn{\omega_2}{omega2} as the
     primitive half periods, and
     \eqn{\omega_3=-\omega_1-\omega_2}{omega3=-omega1-omega2}.  This is
-    also consistent with Chandrasekhara except the factor of 2.
+    also consistent with Chandrasekharan except the factor of 2.
 
     Also note that setting \code{AnS} to \code{TRUE} forces the
     \eqn{e}{e} to be real}
@@ -43,7 +43,6 @@ eee.cardano(g)
   \item{tol}{Real, relative tolerance criterion for terminating Laurent
     summation} 
 }
-
 \value{
   Returns a three-element vector.
   }
@@ -95,6 +94,6 @@ eee.cardano(g)
 \references{Mathematica}
 \author{Robin K. S. Hankin}
 \examples{
-print("e1e2e3")
+ sum(e1e2e3(g=c(1,2)))
 }
 \keyword{math}

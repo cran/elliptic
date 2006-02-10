@@ -26,7 +26,10 @@ Returns the left hand side minus the right hand side of each formula.
 Each formula documented here is identically zero; nonzero values
 are returned due to numerical errors and should be small.
 }
-\references{AMS-55}
+\references{
+    M. Abramowitz and I. A. Stegun 1965. \emph{Handbook of Mathematical
+      Functions.}  New York, Dover.
+}
 \author{Robin K. S. Hankin}
 \examples{
  plot(e16.28.4(z=1:6000,m=0.234))

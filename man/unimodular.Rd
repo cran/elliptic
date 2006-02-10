@@ -21,16 +21,15 @@ unimodularity(n,o, FUN, ...)
   with integer entries and a determinant of unity.
 }
 \value{
-Function \code{unimodular()} returns an array \code{a} of dimension
-\code{c(2,2,u)} (where \code{u} is a complicated function of \code{n}).
-Thus 3-slices of \code{a} (that is, \code{a[,,i]}) are unimodular.
+  Function \code{unimodular()} returns an array \code{a} of dimension
+  \code{c(2,2,u)} (where \code{u} is a complicated function of \code{n}).
+  Thus 3-slices of \code{a} (that is, \code{a[,,i]}) are unimodular.
 
-Function \code{unimodularity()} returns the result of applying
-\code{FUN()} to the unimodular transformations of \code{o}.  The
-function returns a vector of length \code{dim(unimodular(n))[3]}; if
-\code{FUN()} is unimodular and roundoff is neglected, all elements of
-the vector should be identical.
-
+  Function \code{unimodularity()} returns the result of applying
+  \code{FUN()} to the unimodular transformations of \code{o}.  The
+  function returns a vector of length \code{dim(unimodular(n))[3]}; if
+  \code{FUN()} is unimodular and roundoff is neglected, all elements of
+  the vector should be identical.
 }
 \author{Robin K. S. Hankin}
 \note{In function \code{as.primitive()}, a \sQuote{unimodular} may have

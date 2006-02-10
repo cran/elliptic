@@ -16,9 +16,12 @@
 \alias{dn}
 \alias{dd}
 \alias{e16.36.3}
+\concept{Jacobi elliptic functions}
+\concept{Jacobi's elliptic functions}
+\concept{Jacobian elliptic functions}
 \title{Jacobi form of the elliptic functions}
 \description{
-
+  Jacobian elliptic functions
 }
 \usage{
 ss(u,m, ...)
@@ -48,7 +51,10 @@ dd(u,m, ...)
 \details{
 All sixteen Jacobi elliptic functions. 
 }
-\references{AMS-55}
+\references{
+  M. Abramowitz and I. A. Stegun 1965.  \emph{Handbook of mathematical
+    functions}. New York: Dover
+}
 \author{Robin K. S. Hankin}
 \seealso{\code{\link{theta}}}
 \examples{

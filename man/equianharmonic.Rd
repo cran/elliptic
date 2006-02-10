@@ -29,12 +29,23 @@ pseudolemniscatic(...)
  
 }
 \value{
-Returns a list with the same elements as \code{parameters()}.
+  Returns a list with the same elements as \code{parameters()}.
 }
-\references{ams55}
+\references{
+    M. Abramowitz and I. A. Stegun 1965. \emph{Handbook of Mathematical
+      Functions.}  New York, Dover.
+}  
 \author{Robin K. S. Hankin}
 \seealso{\code{\link{parameters}}}
 \examples{
 P(z=0.1+0.1212i,params=equianharmonic())
+
+
+x <- seq(from=-10,to=10,len=200)
+z <- outer(x,1i*x,"+")
+view(x,x,P(z,params=lemniscatic()),real=FALSE)
+view(x,x,P(z,params=pseudolemniscatic()),real=FALSE)
+view(x,x,P(z,params=equianharmonic()),real=FALSE)
+
 }
 \keyword{math}

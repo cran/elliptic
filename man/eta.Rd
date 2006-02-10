@@ -25,10 +25,12 @@ eta.series(z, maxiter=300)
   Function \code{eta.series()} is present for validation (and interest)
   only; it uses the infinite product formula, viz:
   \deqn{\eta(z)=
-    e^{\pi iz/12}\Pi_{n=1}^\infty\left(1-e^{2\pi inz}\right)}{[omitted;
-    see LaTeX version}
+    e^{\pi iz/12}\prod_{n=1}^\infty\left(1-e^{2\pi inz}\right)}{[omitted;
+    see LaTeX version]}
 }
-\references{Chandrasekharan}
+\references{
+  K. Chandrasekharan 1985. \emph{Elliptic functions},  Springer-Verlag.
+}
 \author{Robin K. S. Hankin}
 \seealso{\code{\link{farey}}}
 \examples{

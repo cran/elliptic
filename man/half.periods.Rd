@@ -14,26 +14,28 @@ half.periods(ignore=NULL, e=NULL, g=NULL, primitive)
     \code{g} is named (ignored)}
   \item{primitive}{Boolean, with default \code{TRUE} meaning to return
     primitive periods and \code{FALSE} to return the direct result of
-    Legendre's iterative scheme.}
+    Legendre's iterative scheme}
 }
-
 \details{    
   Parameter \code{e=c(e1,e2,e3)} are the values of the
   Weierstrass P function at the periods:
   \deqn{e_1=P(\omega_1)\qquad e_2=P(\omega_2)\qquad e_3=
     p(\omega_3)}{e1=P(omega1), e2=P(omega2), e3=p(omega3)}
-    
-    where \eqn{\omega_1+\omega_2+\omega_3=0}{omega1+omega2+omega3=0}.  
-    
-    Also, \eqn{e} is given by the roots of the cubic
-    equation \eqn{x^3-g_2x-g_3=0}{x^3-g2*x-g3=0}, but the problem is
-    finding which root corresponds to which of the three elements of
-    \eqn{e}.
-  }
-  \value{
-    Returns a pair of primitive half periods
+  
+  where \eqn{\omega_1+\omega_2+\omega_3=0}{omega1+omega2+omega3=0}.  
+  
+  Also, \eqn{e} is given by the roots of the cubic
+  equation \eqn{x^3-g_2x-g_3=0}{x^3-g2*x-g3=0}, but the problem is
+  finding which root corresponds to which of the three elements of
+  \eqn{e}.
 }
-\references{AMS-55}
+\value{
+  Returns a pair of primitive half periods
+}
+\references{
+    M. Abramowitz and I. A. Stegun 1965. \emph{Handbook of Mathematical
+      Functions.}  New York, Dover.
+}
 \author{Robin K. S. Hankin}
 \note{Function \code{parameters()} uses function \code{half.periods()}
   internally, so do not use \code{parameters()} 

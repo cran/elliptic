@@ -12,7 +12,7 @@ Matrix of coefficients of the Taylor series for
 amn(u)
 }
 \arguments{
-  \item{u}{Integer specifying size of output matrix.}
+  \item{u}{Integer specifying size of output matrix}
 }
 \details{
   Reproduces the coefficients \eqn{a_{mn}}{a_mn} on page 637 according to

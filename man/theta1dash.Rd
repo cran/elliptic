@@ -20,13 +20,16 @@ theta1dashdashdash(z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, maxiter
     \item{give.n}{Boolean with default \code{FALSE} meaning to return the
     function evaluation, and \code{TRUE} meaning to return a two element
     list, with first element the function evaluation, and second element
-    the number of iterations used.}
+    the number of iterations used}
   \item{maxiter}{Maximum number of iterations}
 }
 \details{
   Uses direct expansion as for \code{theta1()} et seq
 }
-\references{ams-55}
+\references{
+   M. Abramowitz and I. A. Stegun 1965. \emph{Handbook of Mathematical
+     Functions.}  New York, Dover
+   }
 \author{Robin K. S. Hankin}
 \seealso{\code{\link{theta}}}
 \examples{

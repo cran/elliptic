@@ -17,7 +17,7 @@ K.fun(m, strict=TRUE, maxiter=7)
   \item{maxiter}{Maximum number of iterations}
 }
 \references{
-   R. Coquereaux, A. Grossman, and B. E. Lautrup. \dQuote{Iterative
+   R. Coquereaux, A. Grossman, and B. E. Lautrup. \emph{Iterative
 method for calculation of the Weierstrass elliptic function}. IMA
 Journal of Numerical Analysis, vol 10, pp119-128, 1990
 }
