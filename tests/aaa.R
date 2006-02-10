@@ -139,6 +139,11 @@ p <- P(z,g)
 pd <- Pdash(z,g)
 test(4*p^3-g2*p-g3-pd^2, 2e-11)
 
+
+# check that (P')^2 =4(P-e1)(P-e2)(P-e3):
+test(pd^2-4*(p-u$e[1])*(p-u$e[2])*(p-u$e[3]))
+
+
 #now some tests of eta() and eta.series():
  z <- seq(from=1+1i,to=10+0.6i,len=99)
 test(eta(z)-eta.series(z),abs.error=2e-14)
@@ -153,7 +158,13 @@ test(theta3(0,q=exp(pi*1i*z))-eta((z+1)/2)^2/eta(1+z),abs.error=4e-15)
  test(J(z)-J(M %mob% z,maxiter=100),1e-7)
  test(lambda(z)-lambda(M %mob% z,maxiter=100),1e-12)
 
-# some identities:
+# some identities for lambda function:
+ z <- seq(from= -1+0.42i,to=10+7i,len=20)
+ test(lambda(z)-lambda(z+2))
+ test(lambda(z+1)-lambda(z)/(lambda(z)-1))
+
+
+# and one for J():
 test(J(1i+-10:10)-1,abs.error=2e-15)
 
 

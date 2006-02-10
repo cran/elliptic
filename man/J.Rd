@@ -41,15 +41,16 @@ lambda(tau, ...)
  plot(lambda(z)-lambda(M \%mob\% z,maxiter=100))
 
 
-#Now a nice little plot:
+#Now a nice little plot; vary n to change the resolution:
  n <- 50
  x <- seq(from=-0.1, to=2,len=n)
  y <- seq(from=0.02,to=2,len=n)
 
  z <- outer(x,1i*y,"+")
  f <- lambda(z,maxiter=40)
- view(x,y,limit(lambda(z,maxiter=40)),code=4,real.contour=FALSE,imag.contour=FALSE)
- view(x,y,limit(J(z)),code=4,real.contour=FALSE,imag.contour=FALSE)
+ g <- J(z)
+ view(x,y,f,scheme=4,real.contour=FALSE,main="try higher resolution")
+ view(x,y,g,scheme=4,real.contour=FALSE,main="try higher resolution")
 
 }
 \keyword{math}

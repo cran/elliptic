@@ -120,10 +120,10 @@ function (a, l = 1)
         return(c(NA, 1))
     }
     if (m == 1) {
-        return(rbind(c(1, n + l), c(0, l)))
+        return(rbind(c(a),c(1, n + l), c(0, l)))
     }
     if (n == 1) {
-        return(rbind(c(m - l, 1), c(l, 0)))
+        return(rbind(c(a),c(m - l, 1), c(l, 0)))
     }
     q1 <- which((+l + (1:m) * n)%%m == zero)
     if (!any(q1)) {
@@ -2038,3 +2038,34 @@ function (z, g = NULL, nmax = 80)
     warning("series not converged.  See p636 for radius of convergence")
     return(1/z - psum)
 }
+
+# Following code for sigma1 sigma2 and sigma3 commented out
+# because output does not agree with Mathematica.  I'll investigate
+# before adding them to the package. rksh.
+
+#sigma1 <- function(u,params){
+#  o1 <- params$Omega[1]
+#  eta1 <- params$Eta[1]
+#exp(-eta1*u)*
+#  sigma(o1+u,params=params)/
+#    sigma(o1,params=params)
+#}
+#
+#sigma2 <- function(u,params){
+#  o2 <-  -sum(params$Omega)
+#  eta2 <- params$Eta[3]
+#exp(-eta2*u)*
+#  sigma(o2+u,params=params)/
+#    sigma(o2,params=params)
+#}
+#
+#sigma3 <- function(u,params){
+#  o3 <- params$Omega[2]
+#  eta3 <- params$Eta[2]
+#  exp(-eta3*u)*
+#    sigma(o3+u,params=params)/
+#      sigma(o3,params=params)
+#}
+#
+#
+

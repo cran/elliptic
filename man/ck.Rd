@@ -16,7 +16,7 @@ ck(g, n=20)
   \item{n}{length of series}
 }
 \details{
-  Calculates the series \eqn{c_k}  as per equation 18.5.3, p635.
+  Calculates the series \eqn{c_k} as per equation 18.5.3, p635.
   }
 \author{Robin K. S. Hankin}
 \seealso{\code{\link{P.laurent}}}

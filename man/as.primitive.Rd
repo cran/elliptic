@@ -10,7 +10,6 @@ the unimodular transformation used.
 as.primitive(p, n = 3, tol = 1e-05, give.answers = FALSE)
 is.primitive(p, n = 3, tol = 1e-05)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{p}{Two element vector containing the two basic periods}
   \item{n}{Maximum magnitude of matrix entries considered}
@@ -25,8 +24,6 @@ is.primitive(p, n = 3, tol = 1e-05)
   Chandrasekharan and others (but not, of course, Abramowitz and Stegun)
   in demanding that the real part of \code{p1}, and the
   imaginary part of \code{p2}, are nonnegative.
-
-  
 }
 \value{
   If \code{give.answers} is \code{TRUE}, return a list with components

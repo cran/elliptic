@@ -8,19 +8,17 @@
 \usage{
 congruence(a, l = 1)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{a}{Two element vector with \code{a=c(m,n)}}
   \item{l}{Right hand side with default 1}
 }
 \value{
-
-  In the usual case of \eqn{(m,n)=1}{(m,n)=1}, returns a square matrix
+  In the usual case of \eqn{(m,n)=1}, returns a square matrix
 whose rows are \code{a} and \code{c(x,y)}.  This matrix is a unimodular
 transformation that takes a pair of basic periods to another pair of
 basic periods.
 
-If \eqn{(m,n)\neq 1}{+(m,n) != 1} then more than one solution is
+If \eqn{(m,n)\neq 1}{(m,n) != 1} then more than one solution is
 available (for example \code{congruence(c(4,6),2)}).  In this case, extra rows
 are added and the matrix is no longer square.
 
@@ -47,7 +45,7 @@ are added and the matrix is no longer square.
     \code{c(3,8)} or \code{c(5,13)}.  Function \code{congruence()} will return
     only the first of these.
 
-    To systematically generate unimodular matrices, use
+    To systematically generate all unimodular matrices, use
     \code{unimodular()}, which uses Farey sequences.
     
   }
