@@ -3,12 +3,6 @@
 \alias{Newton_raphson}
 \alias{Newton_Raphson}
 \alias{newton_Raphson}
-\alias{newton_rapheson}
-\alias{Newton_rapheson}
-\alias{Newton.rapheson}
-\alias{Newton.rapheson}
-\alias{Newton.Rapheson}
-\alias{newton.rapheson}
 \title{Newton Raphson iteration to find roots of equations}
 \description{
 Newton-Raphson iteration to find roots of equations with the emphasis
@@ -16,7 +10,6 @@ on complex functions
 }
 \usage{
  newton_raphson(initial, f, fdash, maxiter, give=TRUE, tol = .Machine$double.eps)
-newton.rapheson(initial, f, fdash, maxiter, give=TRUE, tol = .Machine$double.eps)
 }
 \arguments{
   \item{initial}{Starting guess}

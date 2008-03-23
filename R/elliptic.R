@@ -212,6 +212,13 @@ function (n, k = 1)
         return(as.integer(prod(1 + jj[2, ])))
     }
 }
+
+"liouville" <- function(n){
+out <- ifelse(sapply(factorize(n), length)%%2, -1L, 1L)
+out[n==1] <- 1L
+return(out)
+}
+  
 "dn" <-
 function (u, m, ...) 
 {
@@ -1172,11 +1179,6 @@ function (initial, f, fdash, maxiter, give=TRUE, tol = .Machine$double.eps)
         old.guess <- new.guess
     }
     stop("did not converge")
-}
-
-"newton.rapheson" <- function(initial, f, fdash, maxiter, give=TRUE, tol = .Machine$double.eps){
-  .Deprecated(new="newton_raphson", msg="Use function newton_raphson() instead")
-  newton_raphson(initial=initial, f=f, fdash=fdash, maxiter=maxiter, give=give, tol=tol)
 }
 
 "nn" <-

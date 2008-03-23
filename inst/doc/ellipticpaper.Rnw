@@ -42,10 +42,10 @@ functions, visualization of complex functions}
 
 \Address{
   Robin K. S. Hankin\\
-  University of Cambridge\\
-  19 Silver Street\\
-  Cambridge CB3 9EP\\
-  United Kingdom\\
+  Auckland University of Technology\\
+  19 Wakefield Street\\
+  Auckland\\
+  New Zealand\\
   E-mail: \email{hankin.robin@gmail.com}
 }
 
@@ -478,27 +478,51 @@ z <- outer(x,1i*x, "+")
 f <- P(z, c(1+1i,2-3i))
 @ 
 
-\begin{figure}[htbp]
-  \begin{center}
-<<wp_figure,fig=TRUE>>=
+
+%% Thanks to Dario Strbenac for the following structure
+<<wp_figure_file>>=   
+png("wp_figure.png",width=800,height=800)
+@ 
+
+<<label=wp_figure_plot>>=
 persp(x, y, limit(Re(f)), xlab="Re(z)",ylab="Im(z)",zlab="Re(P(z))",
 theta=30, phi=30, r=1e9, border=NA, shade=0.8, expand=0.6)
-@
+@ 
+
+<<label=wp_figure_close>>=
+null <- dev.off()
+@ 
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics{wp_figure.png}
     \caption{Real part of~$\wp(z,1,1+2i)$.  Note \label{P.persp.re}
     the second order poles at each lattice point}
   \end{center}
 \end{figure}
 
-\begin{figure}[htbp]
-  \begin{center}
-<<thallerfig,fig=TRUE>>=
+
+<<thallerfig_file>>=
+png("thallerfig.png",width=800,height=800)
+@ 
+
+<<label=thallerfig_plot>>=
 par(pty="s")
 view(x,y,f,code=0,real.contour=FALSE, imag.contour=FALSE,drawlabel=FALSE,col="red",axes=FALSE,xlab="Re(z)",ylab="Im(z)")
 axis(1,pos = -4)
 axis(2,pos = -4)
 lines(x=c(-4,4),y=c(4,4))
 lines(y=c(-4,4),x=c(4,4))
-@
+@ 
+
+<<label=thallerfig_close>>=
+null <- dev.off()
+@ 
+
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics{thallerfig.png}
     \caption{Visualization of~$\wp(z,1,1+2i)$\label{P.view} using the
       scheme of \cite{thaller1998}: white corresponds to a pole, black
       to a zero, and full saturation to~$|\wp(z)|=1$.  The poles
@@ -521,9 +545,11 @@ z <- outer(x, 1i*y, "+")
 f <- sigma(z, c(1+1i,2-3i))
 @ 
 
-\begin{figure}[htbp]
-  \begin{center}
-<<sigma_green_plot,fig=TRUE>>=
+<<sigma_green_file>>=
+png("sigma_green.png",width=800,height=800)
+@ 
+
+<<sigma_green_plot>>=
 par(pty="s")
 view(x,y,f,scheme=4,real.contour=FALSE,drawlabels=FALSE,axes=FALSE, xlab="Re(z)",ylab="Im(z)")
 axis(1,pos= -12)
@@ -532,8 +558,16 @@ lines(x=c(-12,12),y=c(12,12))
 lines(y=c(-12,12),x=c(12,12))
 lines(x=c(-12,12),y=-c(12,12))
 lines(y=c(-12,12),x=-c(12,12))
+@ 
 
-@
+
+<<sigma_green_close>>=
+null <- dev.off()
+@ 
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics{sigma_green.png}
     \caption{Visualization of~$f=\sigma(z,1,1+2i)$ using
     \code{view()}; colour indicates~${\rm Arg}(f)$.  Thus points at
     which~$f(z)$ is on the negative real axis, that is
@@ -554,12 +588,22 @@ figure~\ref{sn.thaller} shows Jacobi's ``sn'' function.
 zeta.z <- zeta(z, c(1+1i,2-3i))
 @ 
 
-\begin{figure}[htbp]
-  \begin{center}
-<<zeta_figure,fig=TRUE>>=
+<<zetafig_file>>=
+png("zetafig.png",width=800,height=800)
+@ 
+
+<<label=zetafig_plot>>=
 par(pty="s")
 view(x,y,zeta.z,scheme=0,real.contour=FALSE,drawlabels=FALSE,xlab="Re(z)",ylab="Im(z)")
-@
+@ 
+
+<<label=zetafig_close>>=
+null <- dev.off()
+@ 
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics{zetafig.png}
     \caption{Visualization of~$\zeta(z,1,1+2i)$ using \code{view()}
     and the colouring scheme of Thaller.  Poles appear as white
     regions, and zeros as black regions. \label{zeta.thaller} Each
@@ -577,18 +621,28 @@ m <- outer(jj,1i*jj,"+")
 f <- sn(u=5-2i,m=m,maxiter=1000)
 @ 
 
-\begin{figure}[htbp]
-  \begin{center}
-<<sn_figure,fig=TRUE>>=
+<<sn_figure_file>>=
+png("sn_figure.png",width=800,height=800)
+@ 
+
+<<sn_figure_plot>>=
 par(pty="s")
  view(jj,jj,f,scheme=0,r0=1/5,real=T,imag=F,levels=c(0,-0.4,-1),drawlabels=F,xlab="Re(m)",ylab="Im(m)")
-@
-\caption{Jacobi's ``sn'' function\label{sn.thaller} using the elliptic
-package.  Here, $f={\rm sn}(5-2i,m)$ is visualized, with background
-utilizing Thaller's scheme, and contours of equal~${\rm Re}(f)$ at
-three selected values shown as black lines.  Note the aperiodic
-arrangement of poles (white areas) and zeros (black areas)}
-\end{center}
+@ 
+
+<<sn_figure_close>>=
+null <- dev.off()
+@ 
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics{sn_figure.png}
+    \caption{Jacobi's ``sn'' function\label{sn.thaller} using the elliptic
+      package.  Here, $f={\rm sn}(5-2i,m)$ is visualized, with background
+      utilizing Thaller's scheme, and contours of equal~${\rm Re}(f)$ at
+      three selected values shown as black lines.  Note the aperiodic
+      arrangement of poles (white areas) and zeros (black areas)}
+  \end{center}
 \end{figure}
 
 
@@ -634,13 +688,16 @@ to a stagnation point, at which the speed vanishes; the streamlines
      z <- outer(x,1i*y,"+")
 @ 
 
-\begin{figure}[htbp]
-  \begin{center}
-<<stag_point,fig=TRUE>>=
-     par(pty="s")
-     view(x,y,f(z),nlevels=14,imag.contour=TRUE,real.cont=TRUE,scheme=-1, 
-          drawlabels=FALSE,
-          axes=FALSE,xlab="Re(z)",ylab="Im(z)")
+
+<<stag_point_file>>=
+png("stag_point.png",width=800,height=800)
+@ 
+
+<<stag_point_plot>>=
+par(pty="s")
+view(x,y,f(z),nlevels=14,imag.contour=TRUE,real.cont=TRUE,scheme=-1, 
+     drawlabels=FALSE,
+     axes=FALSE,xlab="Re(z)",ylab="Im(z)")
 axis(1,pos=-6)
 axis(2,pos=-6)
 lines(x=c(-6,6),y=c(6,6))
@@ -651,7 +708,15 @@ lines(x=d1,y=1+d2)
 lines(x=d1,y=-1-d2)
 lines(x=1-d2,y=d1)
 lines(x=-1+d2,y=d1)
-@
+@ 
+
+<<stag_point_close>>=
+null <- dev.off()
+@ 
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics{stag_point.png}
     \caption{Potential flow on the complex plane:
     field\label{z.squared.pot.flow} corresponding to the
     function~$(z)=z^2$.  Solid lines represent streamlines and dotted
@@ -683,16 +748,26 @@ the method of images}~\citep{milne1949}.
      z <- outer(x,1i*y,"+")
 @ 
 
-\begin{figure}[htbp]
-  \begin{center}
-<<two_sources_two_sinks,fig=TRUE>>=
-     par(pty="s")
-     view(x,y,f(z),nlevels=24,imag.contour=TRUE,real.cont=TRUE,scheme=17,power=0.1,drawlabels=FALSE,axes=FALSE,xlab="Re(z)",ylab="Im(z)")
+
+<<two_sources_two_sinks_file>>=
+png("two_sources_two_sinks.png",width=800,height=800)
+@ 
+<<label=two_sources_two_sinks_plot>>=
+par(pty="s")
+view(x,y,f(z),nlevels=24,imag.contour=TRUE,real.cont=TRUE,scheme=17,power=0.1,drawlabels=FALSE,axes=FALSE,xlab="Re(z)",ylab="Im(z)")
 axis(1,pos=-6)
 axis(2,pos=-6)
 lines(x=c(-6,6),y=c(6,6))
 lines(y=c(-6,6),x=c(6,6))
-@
+@ 
+
+<<two_sources_two_sinks_close>>=
+null <- dev.off()
+@ 
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics{two_sources_two_sinks.png}
     \caption{Potential flow in on the complex plane: two sources and
     two sinks, all of equal strength.  Solid
     \label{upper.halfplane.flow} lines denote streamlines, dotted
@@ -779,12 +854,23 @@ f <- function(z){1i*log((z-a)*(z-Conj(a))/(z-b)/(z-Conj(b)))}
     fsn <- f(sn(z,m=m))
 @ 
 
+
+<<rectangle_pot_flow_file>>=
+png("rectangle_pot_flow.png",width=800,height=800)
+@ 
+
+<<rectangle_pot_flow_plot>>=
+view(x,y,fsn,nlevels=44,imag.contour=FALSE,real.cont=TRUE,scheme=17,power=0.1,drawlabels=FALSE,axes=FALSE,xlab="",ylab="")
+rect(-K,0,K,iK,lwd=3)
+@ 
+
+<<rectangle_pot_flow_close>>=
+null <- dev.off()
+@ 
+
 \begin{figure}[htbp]
   \begin{center}
-<<rectangle_pot_flow,fig=TRUE>>=
-     view(x,y,fsn,nlevels=44,imag.contour=FALSE,real.cont=TRUE,scheme=17,power=0.1,drawlabels=FALSE,axes=FALSE,xlab="",ylab="")
-     rect(-K,0,K,iK,lwd=3)
-@
+    \includegraphics{rectangle_pot_flow.png}
     \caption{Potential flow in a rectangle of aspect ratio~2: source
     and sink of equal \label{box.flow} strength.  Colour scheme as in
     figure~\ref{upper.halfplane.flow}.  Note the dividing streamline
@@ -1168,17 +1254,27 @@ shows the first code observation in the context of the ``true'' flow
 field.
 
 <<calc_b_sn,echo=FALSE,print=FALSE,cache=TRUE>>=
-     b <- sn(D1[1,3] + 1i*D1[1,4],m=m) #point corresponding to first line of D1
-     fsnz2 <- f(sn(z,m=m))
+b <- sn(D1[1,3] + 1i*D1[1,4],m=m) #point corresponding to first line of D1
+fsnz2 <- f(sn(z,m=m))
+@ 
+
+<<code_obs_file>>=
+png("code_obs.png",width=800,height=800)
+@ 
+
+<<code_obs_plot>>=
+view(x,y,fsnz2,nlevels=44,imag.contour=FALSE,real.cont=TRUE,scheme=-1,drawlabels=FALSE,axes=FALSE,xlab="",ylab="")
+points(x=K*D1[1,1],y=D1[1,2]*iK,pch=4)
+rect(-K,0,K,iK,lwd=3)
+@ 
+
+<<code_obs_close>>=
+null <- dev.off()
 @ 
 
 \begin{figure}[htbp]
   \begin{center}
-<<code_obs,fig=TRUE>>=
-     view(x,y,fsnz2,nlevels=44,imag.contour=FALSE,real.cont=TRUE,scheme=-1,drawlabels=FALSE,axes=FALSE,xlab="",ylab="")
-     points(x=K*D1[1,1],y=D1[1,2]*iK,pch=4)
-     rect(-K,0,K,iK,lwd=3)
-@
+    \includegraphics{code_obs.png}
     \caption{Streamlines\label{code.obs} of first code
       observation point; field observation point shown as a cross.
       The sink is at~(\Sexpr{D1[1,3]},\Sexpr{D1[1,4]})}
@@ -1186,18 +1282,28 @@ field.
 \end{figure}
 
 <<calc_b2,echo=FALSE,print=FALSE,cache=TRUE>>=
-     b <- sn(0 + 1i*iK/2,m=m) 
-     fsnzz <- f(sn(z,m=m))
+b <- sn(0 + 1i*iK/2,m=m) 
+fsnzz <- f(sn(z,m=m))
 @ 
 
 
+<<true_flow_file>>=
+png("true_flow.png",width=800,height=800)
+@ 
+
+<<true_flow_plot>>=
+view(x,y,fsnzz,nlevels=44,imag.contour=FALSE,real.cont=TRUE,scheme=-1,drawlabels=FALSE,axes=FALSE,xlab="",ylab="")
+points(x=K*D2[,1],y=D2[,2]*iK,pch=4)
+rect(-K,0,K,iK,lwd=3)
+@ 
+
+<<true_flow_close>>=
+null <- dev.off()
+@ 
+
 \begin{figure}[htbp]
   \begin{center}
-<<true_flow,fig=TRUE>>=
-     view(x,y,fsnzz,nlevels=44,imag.contour=FALSE,real.cont=TRUE,scheme=-1,drawlabels=FALSE,axes=FALSE,xlab="",ylab="")
-     points(x=K*D2[,1],y=D2[,2]*iK,pch=4)
-     rect(-K,0,K,iK,lwd=3)
-@
+    \includegraphics{true_flow.png}
     \caption{Streamlines\label{field.obs}
       of ``true'' flow; field observation points shown as crosses}
   \end{center}

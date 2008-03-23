@@ -4,6 +4,7 @@
 \alias{factorize}
 \alias{mobius}
 \alias{totient}
+\alias{liouville}
 \concept{Multiplicative functions}
 \title{Number theoretic functions}
 \description{
@@ -15,6 +16,7 @@ primes(n)
 factorize(n)
 mobius(n)
 totient(n)
+liouville(n)
 }
 \arguments{
   \item{n,k}{Integers}
@@ -42,6 +44,8 @@ totient(n)
   Function \code{totient()} is Euler's totient function (p52), giving
   the number of integers smaller than \code{n} and relatively prime to
   it.
+
+  Function \code{liouville()} gives the Liouville function.
 }
 \references{G. H. Hardy and E. M. Wright, 1985.  \emph{An
 introduction to the theory of numbers} (fifth edition).
@@ -62,5 +66,7 @@ divisor(140,3)
 
 
 plot(divisor(1:100,k=1),type="s",xlab="n",ylab="divisor(n,1)")
+
+plot(cumsum(liouville(1:1000)),type="l",main="does the function ever exceed zero?")
 }
 \keyword{math}

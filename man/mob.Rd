@@ -16,9 +16,16 @@ M \%mob\% x
 \value{
   Returns a value with the same attributes as \code{x}.  Elementwise, if
 
-  \deqn{M=\left(\begin{array}{cc}a&b\\c&d\end{array}\right)}{ommitted:
+  \deqn{M=\left(\begin{array}{cc}a&b\\c&d\end{array}\right)}{omitted:
     see PDF}
+
+  then \code{mob(M,x)} is \eqn{\frac{ax+b}{cx+d}}{(ax+b)/(cx+d)}.
+  
 }
+\references{
+  Wikipedia contributors, "Mobius transformation," Wikipedia, The Free
+  Encyclopedia (accessed February 13, 2011). 
+  }
 \author{Robin K. S. Hankin}
 \note{This function does not check for \code{M} being having integer
   elements, nor for the determinant being unity.
