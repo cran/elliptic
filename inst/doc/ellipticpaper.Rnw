@@ -54,6 +54,12 @@ functions, visualization of complex functions}
 \SweaveOpts{echo=FALSE}
 \begin{document}
 
+
+<<requirepackage,echo=FALSE,print=FALSE>>=
+require(elliptic,quietly=TRUE)
+@ 
+
+
 <<setOverallImageQuality>>=
 n <- 400
 n_BACCO <- 40
@@ -109,7 +115,7 @@ Weierstrass introduced his~$\wp$ function which is defined as
 \end{equation}
 The~$\wp$ function is, in a well defined sense, the simplest
 nontrivial elliptic function~\citep{whittaker1952}.  Given this, we
-have a Taylor expansion of the form
+have a Laurent expansion of the form
 \begin{equation}
 \wp(z)-z^{-2}=\frac{1}{20}g_2z^2+\frac{1}{28}g_3z^4+O(z^6)
 \end{equation}
@@ -370,7 +376,7 @@ related by a unimodular transformation.
 
 The package includes
 functions that generate unimodular matrices.  The underlying function
-is \code{congruence()}, which generates~$2\times 2$ integer matricies
+is \code{congruence()}, which generates~$2\times 2$ integer matrices
 with a determinant of~1, given the first row.  For example:
 <<congruence,echo=TRUE,print=TRUE>>=
 M <- congruence(c(4,9))
