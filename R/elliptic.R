@@ -1416,6 +1416,20 @@ function (...)
     class(out) <- "parameters"
     return(out)
 }
+"residue" <- function(f, z0, r, O=z0, ...){
+    if(r <= abs(z0-O)){
+        warning("contour does not wrap round z0.  Either increase r or move O closer to z0")
+    }
+
+    if(is.complex(r)){
+        warning('imaginary part of r discarded')
+        r <- Re(r)
+    }
+        
+    u <- function(x){O+r*exp(pi*2i*x)} # 0 <= x <= 1 
+    udash <- function(x){r*pi*2i*exp(pi*2i*x)}
+    integrate.contour(function(z,...){f(z,...)/(z-z0)},u,udash,...)/(pi*2i)
+}
 "Re<-" <-
 function (x, value) 
 {

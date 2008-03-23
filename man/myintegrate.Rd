@@ -2,6 +2,7 @@
 \alias{myintegrate}
 \alias{integrate.contour}
 \alias{integrate.segments}
+\alias{residue}
 \concept{Complex integration}
 \concept{Path integration}
 \concept{Contour integration}
@@ -14,12 +15,14 @@
   Integration of complex valued functions along the real axis
   (\code{myintegrate()}), along arbitrary paths
   (\code{integrate.contour()}), and following arbitrary straight line
-  segments (\code{integrate.segments()}).
+  segments (\code{integrate.segments()}).  Also, evaluation of a function at a
+  point using the residue theorem (\code{residue()}).
 }
 \usage{
 myintegrate(f, lower,upper, ...)
 integrate.contour(f,u,udash, ...)
 integrate.segments(f,points, close=TRUE, ...)
+residue(f, z0, r, O=z0, ...)
 }
 \arguments{
   \item{f}{function, possibly complex valued}
@@ -36,20 +39,48 @@ integrate.segments(f,points, close=TRUE, ...)
     variable with default \code{TRUE} meaning to integrate along the segment
     from \code{points[n]} to \code{points[1]} in addition to the internal
     segments}
+  \item{r,O,z0}{In function \code{residue()} returns \code{f(z0)} by
+    integrating \eqn{f(z)/(z-z0)} around a circle of radius \code{r} and
+    center \code{O}}
   \item{...}{Extra arguments passed to \code{integrate()}}
 }
 \author{Robin K. S. Hankin}
 \examples{
+
+f1 <- function(z){sin(exp(z))}
+f2 <- function(z,p){p/z}
+
+myintegrate(f1,2,3)  # that is, along the real axis
+
+
+integrate.segments(f1,c(1,1i,-1,-1i),close=TRUE)   # should be zero
+
+# (following should be pi*2i; note secondary argument):
+integrate.segments(f2,points=c(1,1i,-1,-1i),close=TRUE,p=1)
+
+
+
 # To integrate round the unit circle, we need the contour and its
 # derivative:
 
  u <- function(x){exp(pi*2i*x)}
  udash <- function(x){pi*2i*exp(pi*2i*x)}
 
-# First, some elementary functions, for practice:
-integrate.contour(function(z){1/z},u,udash)            # should be 2*pi*i
-integrate.contour(function(z){log(z)},u,udash)         # should be -2*pi*i
+# Some elementary functions, for practice:
+
+# (following should be 2i*pi; note secondary argument 'p'):
+integrate.contour(function(z,p){p/z},u,udash,p=1)      
+integrate.contour(function(z){log(z)},u,udash)         # should be -2i*pi
 integrate.contour(function(z){sin(z)+1/z^2},u,udash)   # should be zero
+
+
+
+# residue() is a convenience wrapper integrating f(z)/(z-z0) along a
+# circular contour:
+
+residue(function(z){1/z},2,r=0.1)  # should be 1/2=0.5
+
+
 
 # Now, some elliptic functions:
 g <- c(3,2+4i)
@@ -61,6 +92,7 @@ jj <- integrate.contour(Zeta,u,udash)
 abs(jj-2*pi*1i)                              # should be zero
 abs(integrate.contour(Sigma,u,udash))        # should be zero
 abs(integrate.contour(WeierstrassP,u,udash)) # should be zero
+
 
 
 
@@ -129,7 +161,6 @@ a <- 1/(2i*pi)*integrate.contour(g,u,udash)
 
 
 abs(a-sin(0.8))
-
 
 
 }

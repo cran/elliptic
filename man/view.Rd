@@ -92,7 +92,7 @@ default = 0, col="black", r0=1, power=1, show.scheme=FALSE, ...)
   Mathematica Journal, 7(2):163--180
   }
 \examples{
-n <- 55
+n <- 100
 x <- seq(from=-4,to=4,len=n)
 y <- x
 z <- outer(x,1i*y,"+")
@@ -102,6 +102,9 @@ view(x,y,limit(1/z),scheme=18)
 
 view(x,y,limit(1/z+1/(z-1-1i)^2),scheme=5)
 view(x,y,limit(1/z+1/(z-1-1i)^2),scheme=17)
+
+view(x,y,log(0.4+0.7i+log(z/2)^2),main="Some interesting cut lines")
+
 
 view(x,y,z^2,scheme=15,main="try finer resolution")
 view(x,y,sn(z,m=1/2+0.3i),scheme=6,nlevels=33,drawlabels=FALSE)
