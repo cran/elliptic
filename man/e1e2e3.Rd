@@ -10,7 +10,7 @@
   either \code{polyroot} or Cardano's method.
 }
 \usage{
-e1e2e3(g, use.laurent=TRUE, AnS=is.real(g), Omega=NULL, tol=1e-6)
+e1e2e3(g, use.laurent=TRUE, AnS=is.double(g), Omega=NULL, tol=1e-6)
 eee.cardano(g)
 }
 \arguments{

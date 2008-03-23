@@ -446,14 +446,14 @@ function (parameters)
     return(out)
 }
 "e1e2e3" <-
-function (g, use.laurent = TRUE, AnS = is.real(g), Omega = NULL, 
+function (g, use.laurent = TRUE, AnS = is.double(g), Omega = NULL, 
     tol = 1e-06) 
 {
     g2 <- g[1]
     g3 <- g[2]
     e <- polyroot(c(-g3, -g2, 0, 4))
     if (AnS) {
-        if (!is.real(g)) {
+        if (!is.double(g)) {
             stop("AnS only consider real g")
         }
         Delta <- g2^3 - 27 * g3^2

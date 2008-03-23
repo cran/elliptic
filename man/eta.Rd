@@ -2,9 +2,7 @@
 \alias{eta}
 \alias{eta.series}
 \title{Dedekind's eta function}
-\description{
-  Dedekind's \eqn{\eta}{eta} function
-  }
+\description{  Dedekind's \eqn{\eta}{eta} function  }
 \usage{
 eta(z, ...)
 eta.series(z, maxiter=300)
@@ -23,7 +21,7 @@ eta.series(z, maxiter=300)
     see LaTeX version}
 
   Function \code{eta.series()} is present for validation (and interest)
-  only; it uses the infinite product formula, viz:
+  only; it uses the infinite product formula:
   \deqn{\eta(z)=
     e^{\pi iz/12}\prod_{n=1}^\infty\left(1-e^{2\pi inz}\right)}{[omitted;
     see LaTeX version]}

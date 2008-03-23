@@ -1,12 +1,11 @@
-6b968a085af6681213d7e02f05feac31 *DESCRIPTION
+f2e7588e5a55ee5226e4e951e15b01b4 *DESCRIPTION
 d073a6ddec06f6e526a6929499f28ba1 *NAMESPACE
-59b01f437b6598489999573d9fffb0ea *R/elliptic.R
+d80e58e6836f44fd96c00ea7424ae5bf *R/elliptic.R
 33676cd6d88cb688d9fed000bf4fda10 *demo/00Index
 2fad1475ef433f55b12f747f376de850 *demo/elliptic.R
 49042829f5eebfb2383ec97a417361d6 *inst/CITATION
-5f61069431448041d4324974f1a32bae *inst/doc/elliptic.bib
 e573b4cd5f2754b271f9868f60725bf6 *inst/doc/ellipticpaper.Rnw
-4df3db35015620216f9e42a9ce0f6148 *inst/doc/ellipticpaper.pdf
+e2c83e36203bb57832761f2c97e6eae3 *inst/doc/ellipticpaper.pdf
 6d57317c47182f7e6c6990c9fefecc7c *man/J.Rd
 4ee35fa06bff45519dbbfc858b069379 *man/K.fun.Rd
 4f68fe7f2efb36db1c00787c5ee06306 *man/P.laurent.Rd
@@ -19,10 +18,10 @@ e66543f5901fb5829098f41382e1a640 *man/coqueraux.Rd
 bc6567cdef8cf6e1d85b75f2c0ba07c1 *man/divisor.Rd
 22fe69063992cc46e90cb54342500037 *man/e16.28.1.Rd
 986b16988ddbe8bbeb4c559af6f58280 *man/e18.10.9.Rd
-98823569332f5fef19258f91640f7cbe *man/e1e2e3.Rd
+c22f2413c9fab7a1c82e344f8b940d24 *man/e1e2e3.Rd
 ab7398394a2eb0f3b5ad71f52ac67812 *man/elliptic-package.Rd
 26bcf9ff3a24afb73d893a1dc820925d *man/equianharmonic.Rd
-dbfc828aa686a0dd792e641006690d36 *man/eta.Rd
+b33b6f04011d078657b134cfb9af0d3c *man/eta.Rd
 57ca0330ed43977c1fb587aa0d952b9a *man/farey.Rd
 4712c1d07fa004df5504135dcc13366d *man/fpp.Rd
 08a72a6f14dff065ff1a6e3528122bfc *man/g.fun.Rd
@@ -49,3 +48,5 @@ e328a677293830dcb5d2754adc7be591 *man/theta1dash.Rd
 b71334c1419c03a1329b78ef16874c4d *man/unimodular.Rd
 194623a11a3d685f1cdc30719ef24561 *man/view.Rd
 494e8a6e3ef679beb5bbcfb50683aa22 *tests/aaa.R
+5f61069431448041d4324974f1a32bae *vignettes/elliptic.bib
+e573b4cd5f2754b271f9868f60725bf6 *vignettes/ellipticpaper.Rnw
