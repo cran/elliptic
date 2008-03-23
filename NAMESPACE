@@ -1,2 +1,4 @@
 exportPattern("^[[:alpha:]]+")
 exportPattern("%mob%")
+importFrom(MASS,fractions)
+importFrom(MASS,rational)

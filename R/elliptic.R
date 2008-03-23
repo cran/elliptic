@@ -582,7 +582,7 @@ function (n, print = FALSE, give.series = FALSE)
 {
     a <- outer(0:n, 0:n, "/")
     a <- as.vector(a[is.finite(a) & a <= 1])
-    a <- fractions(unique(rational(sort(a))))
+    a <- MASS::fractions(unique(MASS::rational(sort(a))))
     a <- attributes(a)$fracs
     a[1] <- "0/1"
     a[length(a)] <- "1/1"

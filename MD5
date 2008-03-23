@@ -1,11 +1,13 @@
-f2e7588e5a55ee5226e4e951e15b01b4 *DESCRIPTION
-d073a6ddec06f6e526a6929499f28ba1 *NAMESPACE
-d80e58e6836f44fd96c00ea7424ae5bf *R/elliptic.R
+e2b71215eac7f5563eee9858d904eb23 *DESCRIPTION
+58d30ed543a431a90d2f5d4ea8f2d33c *NAMESPACE
+a57487ed85eb1350296856d1a13729a6 *R/elliptic.R
+6162a6bf357120c8633c0e01f22e29a4 *build/vignette.rds
 33676cd6d88cb688d9fed000bf4fda10 *demo/00Index
 2fad1475ef433f55b12f747f376de850 *demo/elliptic.R
 49042829f5eebfb2383ec97a417361d6 *inst/CITATION
-e573b4cd5f2754b271f9868f60725bf6 *inst/doc/ellipticpaper.Rnw
-e2c83e36203bb57832761f2c97e6eae3 *inst/doc/ellipticpaper.pdf
+05d333c134743eca94eb3ccb6e7c4b36 *inst/doc/ellipticpaper.R
+96a9055539a08c9d2a55d5b713c91dad *inst/doc/ellipticpaper.Rnw
+f4e3e923b6988df3252700f9698b970a *inst/doc/ellipticpaper.pdf
 6d57317c47182f7e6c6990c9fefecc7c *man/J.Rd
 4ee35fa06bff45519dbbfc858b069379 *man/K.fun.Rd
 4f68fe7f2efb36db1c00787c5ee06306 *man/P.laurent.Rd
@@ -28,7 +30,7 @@ b33b6f04011d078657b134cfb9af0d3c *man/eta.Rd
 2b4ddd87f996c588b7390477c4b0b4b9 *man/half.periods.Rd
 1f1de93b8af52454e56fc7e092525915 *man/latplot.Rd
 07b5efd49ab27cae2d7e61f891f7c591 *man/lattice.Rd
-98f1114def1c1d07d91ff2adf8e0c357 *man/limit.Rd
+7cfda4454430f8bf841c8093b814cee8 *man/limit.Rd
 05e24c3ee5d67d05e8fe5a82f1bc0b10 *man/massage.Rd
 4f28e593419428ed467140b3621d32ad *man/misc.Rd
 e3ad7db60e2f2abe946fdea47b407d77 *man/mob.Rd
@@ -39,7 +41,7 @@ cc8872603a253c670698ccf76de64218 *man/near.match.Rd
 cbb16bc761a9e8550c9265dcdf5003aa *man/p1.tau.Rd
 7cd372b496880dd04f7063b229a82c5f *man/parameters.Rd
 4b5297191e263a270b95ae339b17e027 *man/pari.Rd
-a974d933b3bdfff64d160be9c1174d0a *man/sn.Rd
+be5220b133aca94a183085a57dd9036d *man/sn.Rd
 1f3f2d56ab9cad1c711f1ed54670a4ca *man/sqrti.Rd
 b5d9a73e37ef7e670b7157028db01fba *man/theta.Rd
 9a0da24113872e56258764cd54b2ec2a *man/theta.neville.Rd
@@ -49,4 +51,4 @@ b71334c1419c03a1329b78ef16874c4d *man/unimodular.Rd
 194623a11a3d685f1cdc30719ef24561 *man/view.Rd
 494e8a6e3ef679beb5bbcfb50683aa22 *tests/aaa.R
 5f61069431448041d4324974f1a32bae *vignettes/elliptic.bib
-e573b4cd5f2754b271f9868f60725bf6 *vignettes/ellipticpaper.Rnw
+96a9055539a08c9d2a55d5b713c91dad *vignettes/ellipticpaper.Rnw

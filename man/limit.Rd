@@ -5,7 +5,9 @@
   Deals appropriately with objects with a few very large elements
 }
 \usage{
-limit(x, upper=quantile(Re(x),0.99,na.rm=TRUE), lower=quantile(Re(x),0.01,na.rm=TRUE), na = FALSE)
+limit(x, upper=quantile(Re(x),0.99,na.rm=TRUE),
+         lower=quantile(Re(x),0.01,na.rm=TRUE),
+         na = FALSE)
 }
 \arguments{
   \item{x}{Vector of real or complex values}

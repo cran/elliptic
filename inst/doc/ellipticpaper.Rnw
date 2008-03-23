@@ -43,7 +43,7 @@ functions, visualization of complex functions}
 \Address{
   Robin K. S. Hankin\\
   Auckland University of Technology\\
-  19 Wakefield Street\\
+  2-14 Wakefield Street\\
   Auckland\\
   New Zealand\\
   E-mail: \email{hankin.robin@gmail.com}
@@ -457,12 +457,25 @@ of package \pkg{elliptic} calls the \code{pari} system directly to
 evaluate elliptic functions from within an \proglang{R} session, enabling quick
 verification:
 
-<<define_omega,echo=TRUE,print=FALSE>>=
-omega <- c(1,1i)
-z <- seq(from=pi,to=pi*1i,len=10)
-<<pari_maxdiff,print=TRUE>>=
-maxdiff(P.pari(z,Omega=omega),  P(z,params=parameters(Omega=omega)))
-@ 
+\begin{Schunk}
+\begin{Sinput}
+> omega <- c(1,1i)
+\end{Sinput}
+\end{Schunk}
+\begin{Schunk}
+\begin{Sinput}
+> z <- seq(from=pi,to=pi*1i,len=10)
+\end{Sinput}
+\end{Schunk}
+\begin{Schunk}
+\begin{Sinput}
+> maxdiff(P.pari(z,Omega=omega),  P(z,params=parameters(Omega=omega)))
+\end{Sinput}
+\begin{Soutput}
+[1] 2.760239e-14
+\end{Soutput}
+\end{Schunk}
+
 again showing reasonable agreement, this time between two independent
 computational systems.
 

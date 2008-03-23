@@ -100,7 +100,10 @@ f <- function(z){1i*log((z-1.7+3i)*(z-1.7-3i)/(z+1-0.3i)/(z+1+0.3i))}
 x <- seq(from=-K,to=K,len=n)
 y <- seq(from=0,to=K,len=n)
 z <- outer(x,1i*y,"+")
-view(x,y,(f(sn(z,m=1/2))),nlevels=44,imag.contour=TRUE,real.cont=TRUE,code=1,drawlabels=FALSE,main="Potential flow in a rectangle",axes=FALSE,xlab="",ylab="")
+
+view(x, y, f(sn(z,m=1/2)), nlevels=44, imag.contour=TRUE,
+     real.cont=TRUE, code=1, drawlabels=FALSE,
+     main="Potential flow in a rectangle",axes=FALSE,xlab="",ylab="")
 rect(-K,0,K,K,lwd=3)
 
 
