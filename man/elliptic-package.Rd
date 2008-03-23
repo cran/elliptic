@@ -36,8 +36,8 @@ see \code{?divisor} for a list.
 
 The package also provides some tools for numerical verification of
 complex analysis such as contour integration (\code{?myintegrate}) and
-Newton-Rapheson iteration for complex functions
-(\code{?newton.rapheson}).
+Newton-Raphson iteration for complex functions
+(\code{?newton_raphson}).
 
 Complex functions may be visualized using \code{view()}; this is
 customizable but has an extensive set of built-in colourmaps.

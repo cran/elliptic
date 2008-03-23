@@ -17,12 +17,11 @@ half.periods(ignore=NULL, e=NULL, g=NULL, primitive)
     Legendre's iterative scheme}
 }
 \details{    
-  Parameter \code{e=c(e1,e2,e3)} are the values of the
-  Weierstrass P function at the periods:
-  \deqn{e_1=P(\omega_1)\qquad e_2=P(\omega_2)\qquad e_3=
-    p(\omega_3)}{e1=P(omega1), e2=P(omega2), e3=p(omega3)}
-  
-  where \eqn{\omega_1+\omega_2+\omega_3=0}{omega1+omega2+omega3=0}.  
+  Parameter \code{e=c(e1,e2,e3)} are the values of the Weierstrass
+  \eqn{\wp}{P} function at the half periods:
+  \deqn{e_1=\wp(\omega_1)\qquad e_2=\wp(\omega_2)\qquad e_3=
+  \wp(\omega_3)}{e1=P(omega1), e2=P(omega2), e3=p(omega3)} where
+  \deqn{\omega_1+\omega_2+\omega_3=0}{omega1+omega2+omega3=0}.
   
   Also, \eqn{e} is given by the roots of the cubic
   equation \eqn{x^3-g_2x-g_3=0}{x^3-g2*x-g3=0}, but the problem is
@@ -54,8 +53,12 @@ u <- half.periods(g=c(7,6))
 massage(c(u[1],2*u[2]+u[1]))          ## Example 7, p665, RHS
 
 
-
 half.periods(g=c(1,1i, 1.1+1.4i))
 half.periods(e=c(1,1i, 2, 1.1+1.4i))
+
+
+g.fun(half.periods(g=c(8,4)))         ##  should be c(8,4)
+
+
 }
 \keyword{math}

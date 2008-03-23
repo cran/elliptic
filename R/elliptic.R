@@ -429,7 +429,7 @@ function (parameters)
     Omega <- parameters$Omega
     e <- parameters$e
     out <- rep(NA, 3)
-    q <- exp((0+1i) * pi * Omega[2]/Omega[1])
+    q <- exp((1i) * pi * Omega[2]/Omega[1])
     out[1] <- 12 * Omega[1]^2 * e[1] - pi^2 * (theta3(z = 0, 
         q = q)^4 + theta4(z = 0, q = q)^4)
     out[2] <- 12 * Omega[1]^2 * e[2] - pi^2 * (theta2(z = 0, 
@@ -515,16 +515,16 @@ function (g)
 function (...) 
 {
     jj <- gamma(1/3)^3/(4 * pi)
-    omega1 <- jj/2 - (0+1i) * jj * sqrt(3)/2
+    omega1 <- jj/2 - (1i) * jj * sqrt(3)/2
     omega2 <- Conj(omega1)
     Omega <- c(omega1, omega2)
-    epsilon <- exp(pi * (0+1i)/3)
+    epsilon <- exp(pi * (1i)/3)
     e <- c(4^(-1/3) * epsilon^2, 4^(-1/3), 4^(-1/3) * epsilon^(-2))
     names(e) <- c("e1", "e2", "e3")
     eta <- epsilon * pi/(2 * omega2 * sqrt(3))
     etadash <- -epsilon^(-1) * pi/(2 * omega2 * sqrt(3))
     Eta <- c(etadash, eta - etadash, -eta)
-    out <- list(Omega = Omega, q = exp(pi * (0+1i) * omega2/omega1), 
+    out <- list(Omega = Omega, q = exp(pi * (1i) * omega2/omega1), 
         e = e, g = c(g2 = 0, g3 = 1), Delta = -27, Eta = Eta, 
         is.AnS = TRUE, given = "d")
     class(out) <- "parameters"
@@ -534,10 +534,10 @@ function (...)
 function (z, ...) 
 {
     f <- function(u) {
-        q <- exp(pi * (0+1i) * u * 3)
+        q <- exp(pi * (1i) * u * 3)
         return(theta3((1/2 + u/2) * pi, q = q, ...))
     }
-    out <- sapply(z, f) * exp(pi * (0+1i) * z/12)
+    out <- sapply(z, f) * exp(pi * (1i) * z/12)
     attributes(out) <- attributes(z)
     return(out)
 }
@@ -546,9 +546,9 @@ function (z, maxiter = 300)
 {
     jj <- 1
     for (n in 1:maxiter) {
-        jj <- jj * (1 - exp(2 * pi * (0+1i) * n * z))
+        jj <- jj * (1 - exp(2 * pi * (1i) * n * z))
     }
-    return(exp(pi * (0+1i) * z/12) * jj)
+    return(exp(pi * (1i) * z/12) * jj)
 }
 "factorize" <-
 function (n) 
@@ -623,7 +623,7 @@ function (b, use.first = TRUE, ...)
     jj <- p1.tau(b)
     p1 <- jj$p1
     tau <- jj$tau
-    q <- exp(pi * (0+1i) * tau)
+    q <- exp(pi * (1i) * tau)
     jj2 <- theta2(0, q = q, ...)
     jj3 <- theta3(0, q = q, ...)
     jj4 <- theta4(0, q = q, ...)
@@ -652,7 +652,7 @@ function (b, nmax = 50, strict = TRUE, tol = 1e-10)
     jj <- p1.tau(b)
     p1 <- jj$p1
     tau <- jj$tau
-    q <- exp(pi * (0+1i) * tau)
+    q <- exp(pi * (1i) * tau)
     s <- 0
     for (n in 1:nmax) {
         s.new <- s + divisor(n, 3) * q^(2 * n)
@@ -675,7 +675,7 @@ function (b, nmax = 50, tol=1e-10, give = FALSE)
     jj <- p1.tau(b)
     p1 <- jj$p1
     tau <- jj$tau
-    q <- exp(pi * (0+1i) * tau)
+    q <- exp(pi * (1i) * tau)
     jj <- 1:nmax
     ee <- q^(2 * jj)
     out <- jj^3 * ee/(1 - ee)
@@ -693,7 +693,7 @@ function (b, nmax = 50, tol = 1e-10, strict = TRUE)
     jj <- p1.tau(b)
     p1 <- jj$p1
     tau <- jj$tau
-    q.sq <- exp(2 * pi * (0+1i) * tau)
+    q.sq <- exp(2 * pi * (1i) * tau)
     s <- 0
     q.sq.power.n <- q.sq
     for (n in 1:nmax) {
@@ -745,7 +745,7 @@ function (b, use.first = TRUE, ...)
     jj <- p1.tau(b)
     p1 <- jj$p1
     tau <- jj$tau
-    q <- exp(pi * (0+1i) * tau)
+    q <- exp(pi * (1i) * tau)
     jj2 <- theta2(0, q = q, ...)^4
     jj3 <- theta3(0, q = q, ...)^4
     jj4 <- theta4(0, q = q, ...)^4
@@ -775,7 +775,7 @@ function (b, nmax = 50, strict = TRUE, tol = 1e-10)
     jj <- p1.tau(b)
     p1 <- jj$p1
     tau <- jj$tau
-    q <- exp(pi * (0+1i) * tau)
+    q <- exp(pi * (1i) * tau)
     s <- 0
     for (n in 1:nmax) {
         s.new <- s + divisor(n, 5) * q^(2 * n)
@@ -798,7 +798,7 @@ function (b, nmax = 50, tol = 1e-10, give = FALSE)
     jj <- p1.tau(b)
     p1 <- jj$p1
     tau <- jj$tau
-    q <- exp(pi * (0+1i) * tau)
+    q <- exp(pi * (1i) * tau)
     jj <- 1:nmax
     ee <- q^(2 * jj)
     out <- jj^5 * ee/(1 - ee)
@@ -816,7 +816,7 @@ function (b, nmax = 50, tol = 1e-10, strict = TRUE)
     jj <- p1.tau(b)
     p1 <- jj$p1
     tau <- jj$tau
-    q.sq <- exp(2 * pi * (0+1i) * tau)
+    q.sq <- exp(2 * pi * (1i) * tau)
     s <- 0
     q.sq.power.n <- q.sq
     for (n in 1:nmax) {
@@ -892,7 +892,7 @@ function (ignore = NULL, e = NULL, g = NULL, primitive = TRUE)
     }
     omega1 <- K.fun((e[2] - e[3])/(e[1] - e[3]))/sqrti(e[1] - 
         e[3])
-    omega2 <- (0+1i)/sqrti(e[1] - e[3]) * K.fun(1 - (e[2] - e[3])/(e[1] - 
+    omega2 <- (1i)/sqrti(e[1] - e[3]) * K.fun(1 - (e[2] - e[3])/(e[1] - 
         e[3]))
     if (primitive) {
         return(as.primitive(c(omega1, omega2)))
@@ -911,7 +911,7 @@ function (x, value)
         return(Re(x))
     }
     else {
-        return(Re(x) + (0+1i) * value)
+        return(Re(x) + (1i) * value)
     }
 }
 "integrate.contour" <-
@@ -948,7 +948,7 @@ function (p, n = 3, tol = 1e-05)
 function (tau, use.theta = TRUE, ...) 
 {
     if (use.theta) {
-        q <- exp(pi * (0+1i) * tau)
+        q <- exp(pi * (1i) * tau)
         jj.2 <- theta2(z = 0, q = q, ...)
         jj.3 <- theta3(z = 0, q = q, ...)
         jj.4 <- theta4(z = 0, q = q, ...)
@@ -983,7 +983,7 @@ function (m, strict = TRUE, maxiter = 7)
 "lambda" <-
 function (tau, ...) 
 {
-    q <- exp(pi * (0+1i) * tau)
+    q <- exp(pi * (1i) * tau)
     (theta2(z = 0, q = q, ...)/theta3(z = 0, q = q, ...))^4
 }
 "latplot" <-
@@ -1027,13 +1027,13 @@ function (p, n)
 function (...) 
 {
     omega1 <- gamma(1/4)^2/(4 * sqrt(pi))
-    omega2 <- (0+1i) * omega1
+    omega2 <- (1i) * omega1
     Omega <- c(omega1, omega2)
     e <- c(1/2, 0, -1/2)
     names(e) <- c("e1", "e2", "e3")
     jj <- pi/4/omega1
-    Eta <- c(jj, -jj * (0+1i), jj * (0+1i - 1))
-    out <- list(Omega = Omega, q = exp(pi * (0+1i) * omega2/omega1), 
+    Eta <- c(jj, -jj * (1i), jj * (1i - 1))
+    out <- list(Omega = Omega, q = exp(pi * (1i) * omega2/omega1), 
         e = e, g = c(g2 = 1, g3 = 0), Delta = 1, Eta = Eta, is.AnS = TRUE, 
         given = "d")
     class(out) <- "parameters"
@@ -1045,7 +1045,7 @@ function (x, upper = quantile(Re(x), 0.99, na.rm = TRUE), lower = quantile(Re(x)
 {
     if (is.complex(x)) {
         return(Recall(Re(x), upper = upper, lower = lower, na = na) + 
-            (0+1i) * Recall(Im(x), upper = upper, lower = lower, 
+            (1i) * Recall(Im(x), upper = upper, lower = lower, 
                 na = na))
     }
     if (na) {
@@ -1067,7 +1067,7 @@ function (z, tol = 1e-10)
         }
         else {
             if (abs(Re(z)) < tol) {
-                return((0+1i) * Im(z))
+                return((1i) * Im(z))
             }
             else {
                 return(z)
@@ -1130,7 +1130,7 @@ function (f, lower, upper, ...)
     }
     jj.1 <- integrate(f.real, lower = lower, upper = upper, ...)
     jj.2 <- integrate(f.imag, lower = lower, upper = upper, ...)
-    jj.1$value + (0+1i) * jj.2$value
+    jj.1$value + (1i) * jj.2$value
 }
 "nc" <-
 function (u, m, ...) 
@@ -1150,20 +1150,35 @@ function (x, y, tol = NULL)
     }
     return(isTRUE(all.equal(x, y, tol = tol)))
 }
-"newton.rapheson" <-
-function (initial, f, fdash, maxiter, tol = .Machine$double.eps) 
+"newton_raphson" <-
+function (initial, f, fdash, maxiter, give=TRUE, tol = .Machine$double.eps) 
 {
     old.guess <- initial
-    for (i in 1:maxiter) {
+    for (i in seq_len(maxiter)) {
         new.guess <- old.guess - f(old.guess)/fdash(old.guess)
-        if (near.match(new.guess, old.guess) | abs(f(new.guess)) < 
-            tol) {
+        jj <- f(new.guess)
+        if(is.na(jj) | is.infinite(jj)){
+          break
+        }
+        if (near.match(new.guess, old.guess) | abs(jj) < tol) {
+          if(give){
+            return(list(root=new.guess,
+                        f.root=jj,
+                        iter=i))
+          } else {
             return(new.guess)
+          }
         }
         old.guess <- new.guess
     }
     stop("did not converge")
 }
+
+"newton.rapheson" <- function(initial, f, fdash, maxiter, give=TRUE, tol = .Machine$double.eps){
+  .Deprecated(new="newton_raphson", msg="Use function newton_raphson() instead")
+  newton_raphson(initial=initial, f=f, fdash=fdash, maxiter=maxiter, give=give, tol=tol)
+}
+
 "nn" <-
 function (u, m, ...) 
 {
@@ -1276,13 +1291,13 @@ function (Omega = NULL, g = NULL, description = NULL)
     omega3 <- -omega1 - omega2
     p1 <- 2 * omega1
     p2 <- 2 * omega2
-    jj.q <- exp(pi * (0+1i) * omega2/omega1)
+    jj.q <- exp(pi * (1i) * omega2/omega1)
     eta1 <- -pi^2 * theta1dashdashdash(0, q = jj.q)/(12 * omega1 * 
         theta1.dash.zero.q(q = jj.q))
-    eta2 <- omega2/omega1 * eta1 - pi * (0+1i)/(2 * omega1)
+    eta2 <- omega2/omega1 * eta1 - pi * (1i)/(2 * omega1)
     eta3 <- -eta2 - eta1
     Eta <- c(eta1, eta2, eta3)
-    out <- list(Omega = Omega, q = exp(pi * (0+1i) * (omega2)/omega1), 
+    out <- list(Omega = Omega, q = exp(pi * (1i) * (omega2)/omega1), 
         e = e, g = g, Delta = Delta, Eta = Eta, 
         is.AnS = FALSE, given = given)
     class(out) <- "parameters"
@@ -1388,12 +1403,12 @@ function (n)
 function (...) 
 {
     jj <- gamma(1/4)^2/(4 * sqrt(2 * pi))
-    Omega <- c(jj * (1 - (0+1i)), jj * (1 + (0+1i)))
-    e <- c(1/2, 0, -1/2) * (0+1i)
+    Omega <- c(jj * (1 - (1i)), jj * (1 + (1i)))
+    e <- c(1/2, 0, -1/2) * (1i)
     names(e) <- c("e1", "e2", "e3")
     jj <- pi/4/Omega[1]
-    Eta <- c(jj, -jj * (0+1i), jj * (0+1i - 1))
-    out <- list(Omega = Omega, q = exp(pi * (0+1i) * Omega[2]/Omega[1]), 
+    Eta <- c(jj, -jj * (1i), jj * (1i - 1))
+    out <- list(Omega = Omega, q = exp(pi * (1i) * Omega[2]/Omega[1]), 
         e = e, g = c(g2 = -1, g3 = 0), Delta = 1, Eta = Eta, 
         is.AnS = TRUE, given = "d")
     class(out) <- "parameters"
@@ -1405,7 +1420,7 @@ function (x, value)
     if (is.complex(value)) {
         stop("RHS must be pure real")
     }
-    return((0+1i) * Im(x) + value)
+    return((1i) * Im(x) + value)
 }
 "sc" <-
 function (u, m, ...) 
@@ -1428,7 +1443,7 @@ function (z, g = NULL, Omega = NULL, params = NULL, use.theta = TRUE,
     Eta <- params$Eta
     if (use.theta) {
         o <- Omega[1]
-        q <- exp(pi * (0+1i) * Omega[2]/Omega[1])
+        q <- exp(pi * (1i) * Omega[2]/Omega[1])
         return(2 * o/pi * exp(Eta[1] * z^2/2/o) * theta1(pi * 
             z/2/o, q = q, ...)/theta1dash(0, q = q, ...))
     }
@@ -1512,7 +1527,7 @@ function (x)
         return(sqrt(x))
     }
     if (any(x < 0)) {
-        return(sqrt(x + (0+0i)))
+        return(sqrt(x + 0i))
     }
     else {
         return(sqrt(x))
@@ -2012,7 +2027,7 @@ function (z, g = NULL, Omega = NULL, params = NULL, use.fpp = TRUE,
     }
     else {
         o <- Omega[1]
-        q <- exp(pi * (0+1i) * Omega[2]/Omega[1])
+        q <- exp(pi * (1i) * Omega[2]/Omega[1])
         jj <- pi * z/(2 * o)
         return(z * Eta[1]/o + pi * theta1dash(jj, q = q, ...)/(2 * 
             o * theta1(jj, q = q, ...)))

@@ -97,6 +97,10 @@ g3.fun.vectorized(b, nmax=50, tol=1e-10, give=FALSE)
 }
 \author{Robin K. S. Hankin}
 \examples{
+
+g.fun(half.periods(g=c(8,4+1i)))  ## should be c(8,4+1i)
+
+
 ## Example 4, p664, LHS:
 omega <- c(10,11i)
 (g2 <- g2.fun(omega))

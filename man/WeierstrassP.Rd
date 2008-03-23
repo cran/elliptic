@@ -34,8 +34,7 @@ zeta(z, g=NULL, Omega=NULL, params=NULL, use.fpp=TRUE, ...)
     (\code{g}, \code{Omega}, \code{params})}
   \item{Omega}{Half periods}
   \item{params}{Object with class \dQuote{\code{parameters}} (typically
-    provided by  \code{parameters()}).  If not of this class, interpret
-    as a two element vector \code{g=c(g2,g3)}}
+    provided by  \code{parameters()})}
   \item{use.fpp}{Boolean, with default \code{TRUE} meaning to calculate
     \eqn{\wp(z^C)}{P(z^C)} where \eqn{z^C} is congruent to \eqn{z}
     in the period lattice.  The default means that accuracy is greater

@@ -19,12 +19,12 @@
 %% \Plainauthor{Achim Zeileis, Second Author} %% comma-separated
 \Plaintitle{Introducing elliptic, an R package for elliptic and
   modular functions}
-\Shorttitle{Elliptic functions with R}
+\Shorttitle{Elliptic functions with \proglang{R}}
 
 %% an abstract and keywords
 \Abstract{
 
-This paper introduces the \pkg{elliptic} package of R routines, for
+This paper introduces the \pkg{elliptic} package of \proglang{R} routines, for
 numerical calculation of elliptic and related functions.  Elliptic
 functions furnish interesting and instructive examples of many ideas
 of complex analysis, and package \pkg{elliptic} illustrates these
@@ -38,12 +38,25 @@ An earlier version of this vignette was published as~\citet{hankin2006}.
 functions, visualization of complex functions}
 
 
+
+
+\Address{
+  Robin K. S. Hankin\\
+  University of Cambridge\\
+  19 Silver Street\\
+  Cambridge CB3 9EP\\
+  United Kingdom\\
+  E-mail: \email{hankin.robin@gmail.com}
+}
+
+
 %% need no \usepackage{Sweave.sty}
 \SweaveOpts{echo=FALSE}
 \begin{document}
 
-<<>>=
+<<setOverallImageQuality>>=
 n <- 400
+n_BACCO <- 40
 @ 
 
 \section{Introduction}
@@ -57,12 +70,12 @@ interesting and instructive non-elementary examples of many results in
 complex analysis such as Cauchy's integral theorem and the residue
 theorem.
 
-In this paper I introduce \pkg{elliptic}, a new R package for
+In this paper I introduce \pkg{elliptic}, a new \proglang{R} package for
 numerical calculation of Weierstrass and Jacobi elliptic functions,
 theta functions and modular functions.  The emphasis is on efficient
 numerical calculation, and informative visualization techniques.
 
-The package is available on CRAN, \verb+http://cran.R-project.org/+
+The package is available on CRAN, \url{http://cran.R-project.org/}
 \citep{rcore2005}. 
 
 \section{Elliptic functions}\label{section:introduction}
@@ -211,14 +224,14 @@ For example, Weierstrass's~$\wp$ function is given by
 where~$q=e^{i\omega_2/\omega_1}$; the other functions have similar
 theta function definitions.
 
-<<echo=FALSE,print=FALSE>>=
+<<require_packages, echo=FALSE,print=FALSE>>=
 <<results=hide>>=
 require(elliptic)
 require(emulator)
 require(calibrator)
 @ 
 
-\section{Package ``elliptic'' in use}
+\section[Package ''elliptic'' in use]{Package \pkg{elliptic} in use}
 
 This section shows \pkg{elliptic} being used in a variety of contexts.
 First, a number of numerical verifications of the code are presented;
@@ -230,7 +243,7 @@ The primary function in package \pkg{elliptic} is~\code{P()}: this
 calculates the Weierstrass~$\wp$ function, and may take named
 arguments that specify either the invariants~\code{g} or half
 periods~\code{Omega}:
-<<echo=TRUE,print=FALSE>>=
+<<simple_usage_of_P,echo=TRUE,print=FALSE>>=
 z <- 1.9+1.8i
 P(z,g=c(1,1i))
 P(z,Omega=c(1,1i))
@@ -246,7 +259,7 @@ more confusing in the intervening 40 years.}, and package
 notational inexactitude.  These checks generally use the convenient
 (trivial) function \code{maxdiff()} that shows the maximum absolute
 difference between its two arguments:
-<<echo=TRUE,print=FALSE>>=
+<<define_maxdiff,echo=TRUE,print=FALSE>>=
 maxdiff <- function(x,y){max(abs(x-y))}
 @ 
 
@@ -254,10 +267,10 @@ For example, we may compare the output of \code{P()}, which uses
 equation~\ref{P.in.terms.of.theta}, against the straightforward
 Laurent expansion, used by \code{P.laurent()}:
 
-<<echo=TRUE,print=FALSE>>=
+<<laurent,echo=TRUE,print=FALSE>>=
 g <- c(3,2+4i)
 z <- seq(from=1,to=0.4+1i,len=34)
-<<echo=TRUE,print=TRUE>>=
+<<maxdiff_laurent,echo=TRUE,print=TRUE>>=
 maxdiff(P(z,g), P.laurent(z,g))
 @
 
@@ -278,7 +291,7 @@ hand side of three grouped identities:
 \end{eqnarray}
 where~$q=e^{-\pi K'/K}$.  From the manpage:
 
-<<echo=TRUE,print=TRUE>>=
+<<abs_e18.10.9,echo=TRUE,print=TRUE>>=
 abs( e18.10.9(parameters(g=g)))
 @
 again showing reasonably accurate numerical results, but perhaps
@@ -297,7 +310,7 @@ numerical convergence properties.
 
 \begin{figure}[htbp]
   \begin{center}
-<<fig=TRUE>>=
+<<lattice_figure,fig=TRUE>>=
 jj.omega <- parameters(g=c(1+1i,2-3i))$Omega
 latplot(jj.omega,xlim=c(-4,4),ylim=c(-4,4),xlab="Re(z)",
      ylab="Im(z)")
@@ -359,7 +372,7 @@ The package includes
 functions that generate unimodular matrices.  The underlying function
 is \code{congruence()}, which generates~$2\times 2$ integer matricies
 with a determinant of~1, given the first row.  For example:
-<<echo=TRUE,print=TRUE>>=
+<<congruence,echo=TRUE,print=TRUE>>=
 M <- congruence(c(4,9))
 @
 (observe that the determinant of~$\mathbf{M}$ is unity) and thus we
@@ -367,10 +380,10 @@ may verify the unimodularity of, for example, \code{g.fun()} by
 evaluating the invariants for a pair of fundamental periods, and
 comparing this with the invariants calculated for a pair of basic
 periods that are related to the fundamental periods by a unimodular
-transformation (here~$\mathbf{M}$).  In R idiom:
-<<echo=TRUE,print=FALSE>>=
+transformation (here~$\mathbf{M}$).  In \proglang{R} idiom:
+<<define_o,echo=TRUE,print=FALSE>>=
 o <- c(1,1i)
-<<echo=TRUE,print=TRUE>>=
+<<maxdiff_o,echo=TRUE,print=TRUE>>=
 maxdiff(g.fun(o), g.fun(M %*% o,maxiter=800))
 @
 showing that the invariants for period pair~$o=(1,i)^T$ are almost
@@ -404,7 +417,7 @@ function that describes the derivative of the contour.  We may now
 integrate over a closed loop, using arguments~\code{u}
 and~\code{udash} which specify a contour following the unit circle:
 
-<<echo=FALSE,print=FALSE>>=
+<<u_udash,echo=FALSE,print=FALSE>>=
 u <- function(x){exp(pi*2i*x)}
 udash <- function(x){pi*2i*exp(pi*2i*x)}
 Zeta <- function(z){zeta(z,g)}
@@ -412,32 +425,32 @@ Sigma <- function(z){sigma(z,g)}
 WeierstrassP <- function(z){P(z,g)}
 @ 
 
-<<echo=TRUE,print=FALSE>>=
+<<integrate,echo=TRUE,print=FALSE>>=
 jj <- integrate.contour(Zeta,u,udash)
-<<echo=TRUE,print=TRUE>>=
+<<maxdiff_integrate,echo=TRUE,print=TRUE>>=
 maxdiff(jj, 2*pi*1i)
 @
 showing reasonable numerical accuracy.  Compare Weierstrass's~$\wp$
 function, which has a second order pole at the origin:
-<<echo=TRUE,print=TRUE>>=
+<<abs_integrate,echo=TRUE,print=TRUE>>=
 abs(integrate.contour(WeierstrassP,u,udash))
 @
 
-\subsubsection{The PARI system}
+\subsubsection[The PARI system]{The \proglang{PARI} system}
 Perhaps the most convincing evidence for numerical accuracy and
 consistency of notation in the software presented here is provided by
 comparison of the package's results with that of
-PARI~\citep{batut2000}.  The PARI system is an open-source project
+\proglang{PARI}~\citep{batut2000}.  The \proglang{PARI} system is an open-source project
 aimed at number theorists, with an emphasis on pure mathematics; it
 includes some elliptic function capability.  Function \code{P.pari()}
 of package \pkg{elliptic} calls the \code{pari} system directly to
-evaluate elliptic functions from within an R session, enabling quick
+evaluate elliptic functions from within an \proglang{R} session, enabling quick
 verification:
 
-<<echo=TRUE,print=FALSE>>=
+<<define_omega,echo=TRUE,print=FALSE>>=
 omega <- c(1,1i)
 z <- seq(from=pi,to=pi*1i,len=10)
-<<print=TRUE>>=
+<<pari_maxdiff,print=TRUE>>=
 maxdiff(P.pari(z,Omega=omega),  P(z,params=parameters(Omega=omega)))
 @ 
 again showing reasonable agreement, this time between two independent
@@ -449,7 +462,7 @@ In the following, a Weierstrass elliptic function with invariants
 of~$1+i$ and~$2-3i$ will be considered.  The half periods
 $\omega_1,\omega_2$ are first evaluated:
 
-<<echo=TRUE,print=FALSE>>=
+<<jj_omega,echo=TRUE,print=FALSE>>=
 jj.omega <- half.periods(g=c(1+1i,2-3i))
 @ 
 and these may be visualized by using \code{latplot()}, as in
@@ -458,14 +471,16 @@ such a function, shown over part of the complex plane, and
 figure~\ref{P.view} shows the same function using the \code{view()}
 function.
 
-
-\begin{figure}[htbp]
-  \begin{center}
-<<fig=TRUE>>=
+<<calculate_wp_figure,echo=FALSE,print=FALSE,cache=TRUE>>=
 x <- seq(from=-4, to=4, len=n)
 y <- x
 z <- outer(x,1i*x, "+")
 f <- P(z, c(1+1i,2-3i))
+@ 
+
+\begin{figure}[htbp]
+  \begin{center}
+<<wp_figure,fig=TRUE>>=
 persp(x, y, limit(Re(f)), xlab="Re(z)",ylab="Im(z)",zlab="Re(P(z))",
 theta=30, phi=30, r=1e9, border=NA, shade=0.8, expand=0.6)
 @
@@ -476,7 +491,7 @@ theta=30, phi=30, r=1e9, border=NA, shade=0.8, expand=0.6)
 
 \begin{figure}[htbp]
   \begin{center}
-<<fig=TRUE>>=
+<<thallerfig,fig=TRUE>>=
 par(pty="s")
 view(x,y,f,code=0,real.contour=FALSE, imag.contour=FALSE,drawlabel=FALSE,col="red",axes=FALSE,xlab="Re(z)",ylab="Im(z)")
 axis(1,pos = -4)
@@ -487,10 +502,10 @@ lines(y=c(-4,4),x=c(4,4))
     \caption{Visualization of~$\wp(z,1,1+2i)$\label{P.view} using the
       scheme of \cite{thaller1998}: white corresponds to a pole, black
       to a zero, and full saturation to~$|\wp(z)|=1$.  The poles
-      of~$\wp(z)$ occur on a regular lattice, and the zeroes on two
+      of~$\wp(z)$ occur on a regular lattice, and the zeros on two
       shifted lattices.  Note how each of the poles is surrounded by
       two cycles of hue, indicating that they are of second order; and
-      each of the zeroes is surrounded by one cycle of hue, indicating
+      each of the zeros is surrounded by one cycle of hue, indicating
       that they are simple roots}
   \end{center}
 \end{figure}
@@ -499,13 +514,16 @@ The~$\sigma$ function with the same invariants is visualized in
 figure~\ref{sigma.green}, showing that its zeros lie on the same
 lattice as figure~\ref{latplot}.
 
-\begin{figure}[htbp]
-  \begin{center}
-<<fig=TRUE>>=
+<<sigma_green_calc,cache=TRUE,echo=FALSE,print=FALSE>>=
 x <- seq(from= -12, to=12, len=n)
 y <- x
 z <- outer(x, 1i*y, "+")
 f <- sigma(z, c(1+1i,2-3i))
+@ 
+
+\begin{figure}[htbp]
+  \begin{center}
+<<sigma_green_plot,fig=TRUE>>=
 par(pty="s")
 view(x,y,f,scheme=4,real.contour=FALSE,drawlabels=FALSE,axes=FALSE, xlab="Re(z)",ylab="Im(z)")
 axis(1,pos= -12)
@@ -532,30 +550,36 @@ lines(y=c(-12,12),x=-c(12,12))
 Figure~\ref{zeta.thaller} shows the zeta function, and
 figure~\ref{sn.thaller} shows Jacobi's ``sn'' function.
 
+<<calculate_zeta,echo=FALSE,print=FALSE,cache=TRUE>>=
+zeta.z <- zeta(z, c(1+1i,2-3i))
+@ 
+
 \begin{figure}[htbp]
   \begin{center}
-<<fig=TRUE>>=
-zeta.z <- zeta(z, c(1+1i,2-3i))
+<<zeta_figure,fig=TRUE>>=
 par(pty="s")
 view(x,y,zeta.z,scheme=0,real.contour=FALSE,drawlabels=FALSE,xlab="Re(z)",ylab="Im(z)")
 @
     \caption{Visualization of~$\zeta(z,1,1+2i)$ using \code{view()}
     and the colouring scheme of Thaller.  Poles appear as white
-    regions, and zeroes as black regions. \label{zeta.thaller} Each
+    regions, and zeros as black regions. \label{zeta.thaller} Each
     pole is of single order, each zero is a simple root (one cycle of
     hue).  The poles occur on a lattice; there is no simple pattern to
-    the zeroes.  Note the overall tendency towards the edges of the
+    the zeros.  Note the overall tendency towards the edges of the
     square to whiteness: $|f|$ increases with~$|z|$ as per
     equation~\ref{zeta.definition}}
   \end{center}
 \end{figure}
 
-\begin{figure}[htbp]
-  \begin{center}
-<<fig=TRUE>>=
+<<calculate_sn,echo=FALSE,print=FALSE,cache=TRUE>>=
 jj <- seq(from=-40,to=40,len=n)
 m <- outer(jj,1i*jj,"+")
 f <- sn(u=5-2i,m=m,maxiter=1000)
+@ 
+
+\begin{figure}[htbp]
+  \begin{center}
+<<sn_figure,fig=TRUE>>=
 par(pty="s")
  view(jj,jj,f,scheme=0,r0=1/5,real=T,imag=F,levels=c(0,-0.4,-1),drawlabels=F,xlab="Re(m)",ylab="Im(m)")
 @
@@ -563,7 +587,7 @@ par(pty="s")
 package.  Here, $f={\rm sn}(5-2i,m)$ is visualized, with background
 utilizing Thaller's scheme, and contours of equal~${\rm Re}(f)$ at
 three selected values shown as black lines.  Note the aperiodic
-arrangement of poles (white areas) and zeroes (black areas)}
+arrangement of poles (white areas) and zeros (black areas)}
 \end{center}
 \end{figure}
 
@@ -603,13 +627,16 @@ field is shown in figure~\ref{z.squared.pot.flow}.  This corresponds
 to a stagnation point, at which the speed vanishes; the streamlines
 (solid) intersect the equipotential lines (dashed) at right angles.
 
-\begin{figure}[htbp]
-  \begin{center}
-<<fig=TRUE>>=
+<<stag_calc,echo=FALSE,print=FALSE,cache=TRUE>>=
      f <- function(z){1i*z^2}
      x <- seq(from=-6,to=6,len=n)
      y <- seq(from=-6,to=6,len=n)
      z <- outer(x,1i*y,"+")
+@ 
+
+\begin{figure}[htbp]
+  \begin{center}
+<<stag_point,fig=TRUE>>=
      par(pty="s")
      view(x,y,f(z),nlevels=14,imag.contour=TRUE,real.cont=TRUE,scheme=-1, 
           drawlabels=FALSE,
@@ -648,13 +675,17 @@ flow in the lower half plane (ie~$\{z:\rm{Im}(z)<0\}$) and consider
 the flow to be bounded below by the real axis.  This is known as {\em
 the method of images}~\citep{milne1949}.
 
-\begin{figure}[htbp]
-  \begin{center}
-<<fig=TRUE>>=
+
+<<two_calc,echo=FALSE,print=FALSE,cache=TRUE>>=
      f <- function(z){1i*log((z-1.7+3i)*(z-1.7-3i)/(z+1-0.6i)/(z+1+0.6i))}
      x <- seq(from=-6,to=6,len=n)
      y <- seq(from=-6,to=6,len=n)
      z <- outer(x,1i*y,"+")
+@ 
+
+\begin{figure}[htbp]
+  \begin{center}
+<<two_sources_two_sinks,fig=TRUE>>=
      par(pty="s")
      view(x,y,f(z),nlevels=24,imag.contour=TRUE,real.cont=TRUE,scheme=17,power=0.1,drawlabels=FALSE,axes=FALSE,xlab="Re(z)",ylab="Im(z)")
 axis(1,pos=-6)
@@ -722,10 +753,8 @@ Figure~\ref{box.flow} shows the resulting flow field: observe how the
 flow speed, which is proportional to the spacing between the
 streamlines, is very small near the left-hand edge of the rectangle.
 
- 
-\begin{figure}[htbp]
-  \begin{center}
-<<fig=TRUE>>=
+
+<<rect_calc3,echo=FALSE,print=FALSE,cache=TRUE>>=
 m <- 0.5
 K <- K.fun(m)
 iK <- K.fun(1-m)
@@ -747,7 +776,13 @@ f <- function(z){1i*log((z-a)*(z-Conj(a))/(z-b)/(z-Conj(b)))}
      x <- seq(from=-K,to=K,len=n)
      y <- seq(from=0,to=iK,len=n)
      z <- outer(x,1i*y,"+")
-     view(x,y,f(sn(z,m=m)),nlevels=44,imag.contour=FALSE,real.cont=TRUE,scheme=17,power=0.1,drawlabels=FALSE,axes=FALSE,xlab="",ylab="")
+    fsn <- f(sn(z,m=m))
+@ 
+
+\begin{figure}[htbp]
+  \begin{center}
+<<rectangle_pot_flow,fig=TRUE>>=
+     view(x,y,fsn,nlevels=44,imag.contour=FALSE,real.cont=TRUE,scheme=17,power=0.1,drawlabels=FALSE,axes=FALSE,xlab="",ylab="")
      rect(-K,0,K,iK,lwd=3)
 @
     \caption{Potential flow in a rectangle of aspect ratio~2: source
@@ -819,9 +854,9 @@ Dataset~\code{z} corresponds to field observations, which in this
 case is fluid speed at several points in the rectangle, obtained from
 simulations with the sink at the centre of the rectangle.
 
-<<echo=FALSE,print=FALSE>>=
+<<bacco_flow,echo=FALSE,print=FALSE,cache=TRUE>>=
 # Choose the size of the computational mesh:
-n <- 40
+n <- n_BACCO
 
 # Choose the number of code observations for D1:
 n.code.obs <- 30
@@ -1111,7 +1146,7 @@ The code evaluation design matrix~\code{D1} is chosen according to a
 random Latin hypercube design, and the observation is calculated using
 the \pkg{elliptic} package:
 
-<<echo=TRUE,print=TRUE>>=
+<<head_D1,echo=TRUE,print=TRUE>>=
 head(D1)
 @ 
 
@@ -1122,7 +1157,7 @@ total of~\Sexpr{n.code.obs} such observations.  Figure~\ref{code.obs}
 shows these points superimposed on the ``true'' flow field.
 
 The field observations are similarly determined:
-<<echo=TRUE,print=TRUE>>=
+<<head_D2,echo=TRUE,print=TRUE>>=
 head(D2)
 @ 
 
@@ -1131,13 +1166,16 @@ showing that the first field observation, at~(\Sexpr{D2[1,1]},
 of~\Sexpr{n.field.obs} such observations.  Figure~\ref{field.obs}
 shows the first code observation in the context of the ``true'' flow
 field.
- 
+
+<<calc_b_sn,echo=FALSE,print=FALSE,cache=TRUE>>=
+     b <- sn(D1[1,3] + 1i*D1[1,4],m=m) #point corresponding to first line of D1
+     fsnz2 <- f(sn(z,m=m))
+@ 
 
 \begin{figure}[htbp]
   \begin{center}
-<<fig=TRUE>>=
-     b <- sn(D1[1,3] + 1i*D1[1,4],m=m) #point corresponding to first line of D1
-     view(x,y,f(sn(z,m=m)),nlevels=44,imag.contour=FALSE,real.cont=TRUE,scheme=-1,drawlabels=FALSE,axes=FALSE,xlab="",ylab="")
+<<code_obs,fig=TRUE>>=
+     view(x,y,fsnz2,nlevels=44,imag.contour=FALSE,real.cont=TRUE,scheme=-1,drawlabels=FALSE,axes=FALSE,xlab="",ylab="")
      points(x=K*D1[1,1],y=D1[1,2]*iK,pch=4)
      rect(-K,0,K,iK,lwd=3)
 @
@@ -1147,12 +1185,16 @@ field.
   \end{center}
 \end{figure}
 
+<<calc_b2,echo=FALSE,print=FALSE,cache=TRUE>>=
+     b <- sn(0 + 1i*iK/2,m=m) 
+     fsnzz <- f(sn(z,m=m))
+@ 
+
 
 \begin{figure}[htbp]
   \begin{center}
-<<fig=TRUE>>=
-     b <- sn(0 + 1i*iK/2,m=m) 
-     view(x,y,f(sn(z,m=m)),nlevels=44,imag.contour=FALSE,real.cont=TRUE,scheme=-1,drawlabels=FALSE,axes=FALSE,xlab="",ylab="")
+<<true_flow,fig=TRUE>>=
+     view(x,y,fsnzz,nlevels=44,imag.contour=FALSE,real.cont=TRUE,scheme=-1,drawlabels=FALSE,axes=FALSE,xlab="",ylab="")
      points(x=K*D2[,1],y=D2[,2]*iK,pch=4)
      rect(-K,0,K,iK,lwd=3)
 @
@@ -1171,7 +1213,7 @@ pair of coordinates of the sink.  This may be evaluated at the centre
 of the rectangle, and again at the top left corner:
 
 
-<<echo=TRUE,print=TRUE>>=
+<<support,echo=TRUE,print=TRUE>>=
 support(c(0,1/2)) #centre of the rectangle
 support(c(-1,1))   #top left corner
 @ 
@@ -1184,15 +1226,25 @@ corresponds to maximum support using numerical optimization
 techniques:
 
 
-<<echo=TRUE,print=TRUE>>=
+<<mle_calc,echo=FALSE,print=FALSE,cache=TRUE>>=
+mle <- optim(c(0,1/2),support)
+@ 
+
+\begin{Schunk}
+\begin{Sinput}
 (mle <- optim(c(0,1/2),support))
+\end{Sinput}
+\end{Schunk}
+
+<<print_mle,echo=FALSE,print=TRUE>>=
+mle
 @ 
 
 Thus the maximum likelihood estimate for the sink is a distance of
 about~0.2 from the true position.  The support at this point is
 about~3.9 units of likelihood:
 
-<<echo=TRUE,print=TRUE>>=
+<<support_of_mle,echo=TRUE,print=TRUE>>=
 support(mle)
 @ 
 
@@ -1225,7 +1277,7 @@ complex analysis, and are frequently encountered in applied
 mathematics: here they were used to calculate a potential flow field
 in a rectangle.
 
-This paper introduced the R package \pkg{elliptic}, which was then
+This paper introduced the \proglang{R} package \pkg{elliptic}, which was then
 used in conjunction with Bayesian statistical methods (the \pkg{BACCO}
 bundle) to make statistically sound inferences about a flow with
 uncertain parameters: in this case the position of the sink was
@@ -1234,7 +1286,7 @@ estimated from a sparse and noisy dataset.
 
 \subsection*{Acknowledgements}
 I would like to acknowledge the many stimulating and helpful comments
-made by the R-help list over the years.
+made by the \proglang{R}-help list over the years.
 
 \bibliography{elliptic}
 \end{document}
