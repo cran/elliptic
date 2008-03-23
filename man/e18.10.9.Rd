@@ -22,12 +22,9 @@ e18.10.9(parameters)
 \arguments{
   \item{parameters}{An object of class \dQuote{parameters}}
 }
-\details{
-  detsil here
-}
 \value{
-Returns a complex vector of length three: \eqn{e_1}{e_1},
-\eqn{e_2}{e_2}, \eqn{e_3}{e_3}
+Returns a complex vector of length three: \eqn{e_1},
+\eqn{e_2}, \eqn{e_3}
 }
 \references{
   M. Abramowitz and I. A. Stegun 1965. \emph{Handbook of Mathematical
@@ -35,7 +32,7 @@ Returns a complex vector of length three: \eqn{e_1}{e_1},
 }
 \author{Robin K. S. Hankin}
 \note{
-  A good check for the three \eqn{e}{e}'s being in the right order.
+  A good check for the three \eqn{e}'s being in the right order.
   
 }
 \examples{

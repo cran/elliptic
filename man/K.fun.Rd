@@ -3,8 +3,8 @@
 \alias{e16.1.1}
 \title{quarter period K}
 \description{
-  Calculates the K.fun in terms of either \eqn{m}{m} (\code{K.fun()})
-  or \eqn{k}{k} (\code{K.fun.k()}).
+  Calculates the K.fun in terms of either \eqn{m} (\code{K.fun()})
+  or \eqn{k} (\code{K.fun.k()}).
 }
 \usage{
 K.fun(m, strict=TRUE, maxiter=7)

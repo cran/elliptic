@@ -17,8 +17,8 @@ eee.cardano(g)
   \item{g}{Two-element vector with \code{g=c(g2,g3)}}
   \item{use.laurent}{Boolean, with default \code{TRUE} meaning
     to use \code{P.laurent()} to determine the correct ordering for the
-    \eqn{e}{e}: \eqn{P(\omega_1)}{P(omega1)}, \eqn{P(\omega_2)}{P(omega2)},
-    \eqn{P(\omega_3)}{P(omega3)}.  Setting to  \code{FALSE} means to
+    \eqn{e}: \eqn{\wp(\omega_1)}{P(omega1)}, \eqn{\wp(\omega_2)}{P(omega2)},
+    \eqn{\wp(\omega_3)}{P(omega3)}.  Setting to  \code{FALSE} means to
     return the solutions of the cubic equation directly: this is much
     faster, but is not guaranteed to find the \eqn{e_i}{e} in the
     right order (the roots are found according to the vagaries of
@@ -32,12 +32,12 @@ eee.cardano(g)
     also consistent with Chandrasekharan except the factor of 2.
 
     Also note that setting \code{AnS} to \code{TRUE} forces the
-    \eqn{e}{e} to be real}
+    \eqn{e} to be real}
   \item{Omega}{A pair of primitive half periods, if known.  If supplied, the
     function uses them to calculate approximate values for the three
-    \eqn{e}{e}s (but supplies values calculated by \code{polyroot()},
+    \eqn{e}s (but supplies values calculated by \code{polyroot()},
     which are much more accurate).  The function needs the approximate
-    values to determine in which order the \eqn{e}{e}s should be, as
+    values to determine in which order the \eqn{e}s should be, as
     \code{polyroot()} returns roots in whichever order the polynomial
     solver gives them in}
   \item{tol}{Real, relative tolerance criterion for terminating Laurent

@@ -9,7 +9,8 @@ latplot(p, n=10, do.lines=TRUE, ...)
 }
 \arguments{
   \item{p}{Vector of length two with first element the first period and
-    second element the second period.  Note that \eqn{p_1=2\omega_1}}
+    second element the second period.  Note that
+    \eqn{p_1=2\omega_1}{p1=2*omega1}}
   \item{n}{Size of lattice}
   \item{do.lines}{Boolean with default \code{TRUE} meaning to show
     boundaries between adjacent period parallelograms}

@@ -18,7 +18,7 @@ e16.28.5(m, ...)
 
 \arguments{
   \item{z}{Complex number}
-  \item{m}{Parameter \eqn{m}{m}}
+  \item{m}{Parameter \eqn{m}}
   \item{...}{Extra arguments passed to \code{theta[1-4]()}}
 }
 \details{

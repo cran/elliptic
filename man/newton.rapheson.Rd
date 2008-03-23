@@ -10,8 +10,8 @@ newton.rapheson(initial, f, fdash, maxiter, tol = .Machine$double.eps)
 }
 \arguments{
   \item{initial}{Starting guess}
-  \item{f}{Function for which \eqn{f(z)=0}{f(z)=0} is to be solved for
-    \eqn{z}{z}}
+  \item{f}{Function for which \eqn{f(z)=0} is to be solved for
+    \eqn{z}}
   \item{fdash}{Derivative of function (note: Cauchy-Riemann conditions
     assumed)} 
   \item{maxiter}{Maximum number of iterations attempted}
@@ -21,7 +21,7 @@ newton.rapheson(initial, f, fdash, maxiter, tol = .Machine$double.eps)
   Bog-standard
 }
 \value{
-  Returns \eqn{z}{z} with \eqn{|f(z)|<tol}{|f(z)|<tol}
+  Returns \eqn{z} with \eqn{|f(z)|<tol}
 }
 \author{Robin K. S. Hankin}
 \examples{

@@ -22,8 +22,8 @@
 \alias{e16.31.4}
 \title{Jacobi theta functions 1-4}
 \description{
-Computes Jacobi's four theta functions for complex \eqn{z}{z} in terms
-of the parameter \eqn{m}{m} or \eqn{q}{q}.
+Computes Jacobi's four theta functions for complex \eqn{z} in terms
+of the parameter \eqn{m} or \eqn{q}.
 }
 \usage{
 theta1  (z, ignore=NULL, m=NULL, q=NULL, give.n=FALSE, maxiter=30)
@@ -45,7 +45,7 @@ H1(u, m, ...)
     name the second argument either \code{m} or \code{q}.}
   \item{m}{Does not seem to have a name.   The variable is introduced in
     section 16.1, p569}
-  \item{q}{The nome \eqn{q}{q}, defined in section 16.27, p576}
+  \item{q}{The nome \eqn{q}, defined in section 16.27, p576}
   \item{give.n}{Boolean with default \code{FALSE} meaning to return the
     function evaluation, and \code{TRUE} meaning to return a two element
     list, with first element the function evaluation, and second element

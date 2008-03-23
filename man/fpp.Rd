@@ -3,9 +3,9 @@
 \alias{mn}
 \title{Fundamental period parallelogram}
 \description{
-  Reduce \eqn{z=x+iy}{z=x+iy} to a congruent value within the
+  Reduce \eqn{z=x+iy} to a congruent value within the
   fundamental period parallelogram (FPP).  Function \code{mn()} gives
-  (real, possibly noninteger) \eqn{m}{m} and \eqn{n}{n} such that
+  (real, possibly noninteger) \eqn{m} and \eqn{n} such that
   \eqn{z=m\cdot p_1+n\cdot p_2}{z=m*p_1+n*p_2}.
 }
 \usage{
@@ -15,7 +15,7 @@ mn(z, p)
 \arguments{
   \item{z}{Primary complex argument}
   \item{p}{Vector of length two with first element the first period and
-    second element the second period.  Note that \eqn{p}{p} is the
+    second element the second period.  Note that \eqn{p} is the
     period, so \eqn{p_1=2\omega_1}, where \eqn{\omega_1}{omega1} is the
     half period}
   \item{give}{Boolean, with  \code{TRUE} meaning to return M and N, and

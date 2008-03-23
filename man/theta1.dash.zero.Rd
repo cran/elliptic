@@ -4,8 +4,8 @@
 \alias{e16.28.6}
 \title{Derivative of theta1}
 \description{
-  Calculates \eqn{\theta_1'}{theta1'} as a function of either \eqn{m}{m}
-  or \eqn{k}{k}
+  Calculates \eqn{\theta_1'}{theta1'} as a function of either \eqn{m}
+  or \eqn{k}
 }
 \usage{
 theta1.dash.zero(m, ...)

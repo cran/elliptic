@@ -37,18 +37,18 @@ zeta(z, g=NULL, Omega=NULL, params=NULL, use.fpp=TRUE, ...)
     provided by  \code{parameters()}).  If not of this class, interpret
     as a two element vector \code{g=c(g2,g3)}}
   \item{use.fpp}{Boolean, with default \code{TRUE} meaning to calculate
-    \eqn{P(z^C)}{P(z^C)} where \eqn{z^C}{z^C} is congruent to \eqn{z}{z}
+    \eqn{\wp(z^C)}{P(z^C)} where \eqn{z^C} is congruent to \eqn{z}
     in the period lattice.  The default means that accuracy is greater
-    for large \eqn{z}{z} but has the deficiency that slight
+    for large \eqn{z} but has the deficiency that slight
     discontinuities may appear near parallelogram boundaries}
   \item{give.all.3}{Boolean, with default \code{FALSE} meaning to return
-    \code{P(z)} and \code{TRUE} meaning to return the other forms given
+    \eqn{\wp(z)}{P(z)} and \code{TRUE} meaning to return the other forms given
     in equation 18.10.5, p650.  Use \code{TRUE} to check for accuracy}
   \item{use.theta}{Boolean, with default \code{TRUE} meaning to use
     theta function forms, and \code{FALSE} meaning to use a Laurent
     expansion.  Usually, the theta function form is faster, but not
     always}
-  \item{...}{Extra parameters passed to \code{theta1()} and \code{theta1dash()}.}
+  \item{...}{Extra parameters passed to \code{theta1()} and \code{theta1dash()}}
 }
 \references{
   R. K. S. Hankin.  \emph{Introducing Elliptic, an R package for
