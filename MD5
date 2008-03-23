@@ -1,11 +1,12 @@
-29408b7f0c5e8308372aa929d39600ab *DESCRIPTION
+6b968a085af6681213d7e02f05feac31 *DESCRIPTION
+d073a6ddec06f6e526a6929499f28ba1 *NAMESPACE
 59b01f437b6598489999573d9fffb0ea *R/elliptic.R
 33676cd6d88cb688d9fed000bf4fda10 *demo/00Index
 2fad1475ef433f55b12f747f376de850 *demo/elliptic.R
 49042829f5eebfb2383ec97a417361d6 *inst/CITATION
 5f61069431448041d4324974f1a32bae *inst/doc/elliptic.bib
-3f84d95e0036c939778dc9fc946b7db0 *inst/doc/ellipticpaper.Rnw
-e619b350e0c07b75dcd92395569b33c2 *inst/doc/ellipticpaper.pdf
+e573b4cd5f2754b271f9868f60725bf6 *inst/doc/ellipticpaper.Rnw
+4df3db35015620216f9e42a9ce0f6148 *inst/doc/ellipticpaper.pdf
 6d57317c47182f7e6c6990c9fefecc7c *man/J.Rd
 4ee35fa06bff45519dbbfc858b069379 *man/K.fun.Rd
 4f68fe7f2efb36db1c00787c5ee06306 *man/P.laurent.Rd
