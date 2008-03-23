@@ -110,6 +110,11 @@ abs(answer.approximate - answer.exact)
 abs(integrate.segments(f,c(-R,R,1i*R))- answer.exact)
 
 
+# Observe how much better one can do by integrating over a big square
+# instead:
+
+abs(integrate.segments(f,c(-R,R,R+1i*R, -R+1i*R))- answer.exact)
+
 
 # Now in the interests of search engine findability, here is an
 # application of Cauchy's integral formula, or Cauchy's formula.  I will

@@ -16,7 +16,8 @@ M \%mob\% x
 \value{
   Returns a value with the same attributes as \code{x}.  Elementwise, if
 
-  \deqn{M=\left(\begin{array}{cc}a&b\\c&d\end{array}\right)}{23}
+  \deqn{M=\left(\begin{array}{cc}a&b\\c&d\end{array}\right)}{ommitted:
+    see PDF}
 }
 \author{Robin K. S. Hankin}
 \note{This function does not check for \code{M} being having integer

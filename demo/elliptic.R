@@ -9,7 +9,7 @@ n <- 200
 val <- 4
 
 # Change 'no.of.schemes' to see more schemes used
-no.of.schemes <- 5
+no.of.schemes <- 3
 
 # Change 'fact' to adjust the factor used for the upper-half-plane functions
 fact <- 3
@@ -77,7 +77,7 @@ kk <- function(fz,string){
 jj(fz=limit(sn(z,m=1/2+0.6i)),"sn(z)")
 jj(fz=limit(P(z,c(1+2.1i,1.3-3.2i))),"P(z)")
 jj(fz=limit(zeta(z,c(1+1i,2-3i))),"zeta(z)")
-jj(fz=limit(sigma(z,c(1+1i,2-3i))),"sigma(z)")
+jj(fz=limit(sigma(z,c(10+11i,20-31i))),"sigma(z)")
 kk(fz=limit(J(zupper,maxiter=100)),"J(z)")
 kk(fz=limit(lambda(zupper,maxiter=100)),"lambda(z)")
 

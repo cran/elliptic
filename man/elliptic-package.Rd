@@ -12,8 +12,8 @@ Elliptic and modular functions
 }
 \details{
 The primary function in package \pkg{elliptic} is \code{P()}: this
-calculates the Weierstrass~\eqn{\wp}{P} function, and may take named
-arguments that specify either the invariants~\code{g} or half
+calculates the Weierstrass \eqn{\wp}{P} function, and may take named
+arguments that specify either the invariants \code{g} or half
 periods \code{Omega}.  The derivative is given by function \code{Pdash}
 and the Weierstrass sigma and zeta functions are given by functions
 \code{sigma()} and \code{zeta()} respectively; these are documented in
