@@ -3,7 +3,7 @@
 \alias{\%mob\%}
 \title{Moebius transformations}
 \description{
-M\"{o}bius transformations
+Moebius transformations
 }
 \usage{
 mob(M, x)

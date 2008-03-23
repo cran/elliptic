@@ -35,14 +35,13 @@ totient(n)
   the divisors of \code{n}.  Setting \eqn{k=0} corresponds to
   \eqn{d(n)}, which gives the number of divisors of \code{n}. 
 
-  Function \code{mobius()} is the M\"{o}bius function (p234), giving
-  zero if \code{n} has a repeated prime factor, and \eqn{(-1)^q} where
+  Function \code{mobius()} is the Moebius function (p234), giving zero
+  if \code{n} has a repeated prime factor, and \eqn{(-1)^q} where
   \eqn{n=p_1p_2\ldots p_q}{n=p_1*p_2*...p_q} otherwise.
 
   Function \code{totient()} is Euler's totient function (p52), giving
   the number of integers smaller than \code{n} and relatively prime to
   it.
-  
 }
 \references{G. H. Hardy and E. M. Wright, 1985.  \emph{An
 introduction to the theory of numbers} (fifth edition).

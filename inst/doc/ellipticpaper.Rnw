@@ -1,4 +1,4 @@
-\documentclass[article]{Z}  % Z.cls kindly supplied by Achim Zeileis
+\documentclass[nojss]{jss}
 
 \usepackage{dsfont}
 \usepackage{bbm}
@@ -37,6 +37,8 @@ An earlier version of this vignette was published as~\citet{hankin2006}.
 \Keywords{Elliptic functions, modular functions, Weierstrass elliptic
 functions, visualization of complex functions}
 
+
+%% need no \usepackage{Sweave.sty}
 \SweaveOpts{echo=FALSE}
 \begin{document}
 
@@ -55,7 +57,7 @@ interesting and instructive non-elementary examples of many results in
 complex analysis such as Cauchy's integral theorem and the residue
 theorem.
 
-In this vignette I introduce \pkg{elliptic}, a new R package for
+In this paper I introduce \pkg{elliptic}, a new R package for
 numerical calculation of Weierstrass and Jacobi elliptic functions,
 theta functions and modular functions.  The emphasis is on efficient
 numerical calculation, and informative visualization techniques.
@@ -832,7 +834,13 @@ n.field.obs <- 31
 # the sink is at a known, specified, position.
 
 set.seed(0)
-D1.elliptic <- latin.hypercube(n.code.obs,4)
+
+latin.hypercube <- function (n, d){
+  sapply(seq_len(d), function(...) { (sample(1:n) - 0.5)/n })
+}
+
+
+D1.elliptic <- latin.hypercube(n.code.obs , 4)
 colnames(D1.elliptic) <- c("x","y","x.sink","y.sink")
 D1.elliptic[,c(1,3)] <- (D1.elliptic[,c(1,3)] -0.5)*2
 #D1.elliptic[,c(2,4)] <- D1.elliptic[,c(2,4)] *iK
@@ -840,7 +848,7 @@ D1.elliptic[,c(1,3)] <- (D1.elliptic[,c(1,3)] -0.5)*2
 # now a D2 design matrix.  This is field observations: observations of
 # fluid speed when the sink is at the true, unknown, specified,
 # position.
-D2.elliptic <- latin.hypercube(n.field.obs,2)
+D2.elliptic <- latin.hypercube(n.field.obs , 2)
 colnames(D2.elliptic) <- c("x","y")
 D2.elliptic[,1] <- (D2.elliptic[,1] -0.5)*2
 

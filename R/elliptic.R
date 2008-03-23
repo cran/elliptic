@@ -917,8 +917,8 @@ function (x, value)
 "integrate.contour" <-
 function (f, u, udash, ...) 
 {
-    myintegrate(function(x) {
-        f(u(x)) * udash(x)
+    myintegrate(function(x, ...) {
+        f(u(x), ...) * udash(x)
     }, lower = 0, upper = 1, ...)
 }
 "integrate.segments" <-
@@ -1122,11 +1122,11 @@ function (n)
 "myintegrate" <-
 function (f, lower, upper, ...) 
 {
-    f.real <- function(x) {
-        Re(f(x))
+    f.real <- function(x, ...) {
+        Re(f(x, ...))
     }
-    f.imag <- function(x) {
-        Im(f(x))
+    f.imag <- function(x, ...) {
+        Im(f(x, ...))
     }
     jj.1 <- integrate(f.real, lower = lower, upper = upper, ...)
     jj.2 <- integrate(f.imag, lower = lower, upper = upper, ...)

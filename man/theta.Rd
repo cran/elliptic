@@ -61,11 +61,12 @@ H1(u, m, ...)
   Functions \code{theta.00()} eq seq are just wrappers for 
   \code{theta1()} et seq, following Whittaker and Watson's terminology
   on p487; the notation does not appear in Abramowitz and Stegun.
-  
-    \item{\code{theta.11() = theta1()}}{.}
-    \item{\code{theta.10() = theta2()}}{.}
-    \item{\code{theta.00() = theta3()}}{.}
-    \item{\code{theta.01() = theta4()}}{.}
+  \itemize{
+    \item \code{theta.11() = theta1()}
+    \item \code{theta.10() = theta2()}
+    \item \code{theta.00() = theta3()}
+    \item \code{theta.01() = theta4()}
+    }
   
 }
 \value{

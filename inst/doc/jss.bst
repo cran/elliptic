@@ -4,11 +4,11 @@
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `ay,nat,nm-rvx,keyxyr,dt-beg,yr-par,note-yr,tit-qq,bt-qq,atit-u,trnum-it,vol-bf,volp-com,num-xser,isbn,issn,edpar,pp,ed,xedn,xand,etal-it,revdata,eprint,url,url-blk,nfss')
+%% merlin.mbs  (with options: `ay,nat,nm-rvx,keyxyr,dt-beg,yr-par,note-yr,tit-qq,bt-qq,atit-u,trnum-it,vol-bf,volp-com,num-xser,isbn,issn,edpar,pp,ed,xedn,xand,etal-it,revdata,eprint,url,url-blk,doi,nfss')
 %% ----------------------------------------
 %% *** Journal of Statistical Software ***
 %% 
-%% Copyright 1994-2002 Patrick W Daly
+%% Copyright 1994-2004 Patrick W Daly
  % ===============================================================
  % IMPORTANT NOTICE:
  % This bibliographic style (bst) file has been generated from one or
@@ -20,7 +20,7 @@
  % version 1 of the License, or any later version.
  % ===============================================================
  % Name and version information of the main mbs file:
- % \ProvidesFile{merlin.mbs}[2002/10/21 4.05 (PWD, AO, DPC)]
+ % \ProvidesFile{merlin.mbs}[2004/02/09 4.13 (PWD, AO, DPC)]
  %   For use with BibTeX version 0.99a or later
  %-------------------------------------------------------------------
  % This bibliography style file is intended for texts in ENGLISH
@@ -58,6 +58,7 @@ ENTRY
     booktitle
     chapter
     collaboration
+    doi
     edition
     editor
     eid
@@ -546,6 +547,15 @@ FUNCTION {format.issn}
   if$
 }
 
+FUNCTION {format.doi}
+{ doi "doi" bibinfo.check
+  duplicate$ empty$ 'skip$
+    {
+      new.block
+      "\doi{" swap$ * "}" *
+    }
+  if$
+}
 FUNCTION {format.note}
 {
  note empty$
@@ -766,16 +776,16 @@ FUNCTION {format.number.series}
         { series field.or.null }
         { series empty$
             { number "number" bibinfo.check }
-        { output.state mid.sentence =
-            { bbl.number }
-            { bbl.number capitalize }
+            { output.state mid.sentence =
+                { bbl.number }
+                { bbl.number capitalize }
+              if$
+              number tie.or.space.prefix "number" bibinfo.check * *
+              bbl.in space.word *
+              series "series" bibinfo.check *
+            }
           if$
-          number tie.or.space.prefix "number" bibinfo.check * *
-          bbl.in space.word *
-          series "series" bibinfo.check *
         }
-      if$
-    }
       if$
     }
     { "" }
@@ -848,13 +858,13 @@ FUNCTION {format.journal.pages}
 }
 FUNCTION {format.journal.eid}
 { eid "eid" bibinfo.check
-  duplicate$ empty$ 'skip$
+  duplicate$ empty$ 'pop$
     { swap$ duplicate$ empty$ 'skip$
       {
           ", " *
       }
       if$
-      swap$
+      swap$ *
       numpages empty$ 'skip$
         { bbl.eidpp numpages tie.or.space.prefix
           "numpages" bibinfo.check * *
@@ -862,7 +872,7 @@ FUNCTION {format.journal.eid}
         }
       if$
     }
-  if$ *
+  if$
 }
 FUNCTION {format.vol.num.pages}
 { volume field.or.null
@@ -1028,6 +1038,7 @@ FUNCTION {article}
     }
   if$
   format.issn output
+  format.doi output
   new.block
   format.note output
   format.eprint output
@@ -1064,6 +1075,7 @@ FUNCTION {book}
   if$
   format.edition output
   format.isbn output
+  format.doi output
   new.block
   format.note output
   format.eprint output
@@ -1081,6 +1093,7 @@ FUNCTION {booklet}
   howpublished "howpublished" bibinfo.check output
   address "address" bibinfo.check output
   format.isbn output
+  format.doi output
   new.block
   format.note output
   format.eprint output
@@ -1124,6 +1137,7 @@ FUNCTION {inbook}
     { format.isbn output }
     'skip$
   if$
+  format.doi output
   new.block
   format.note output
   format.eprint output
@@ -1154,6 +1168,7 @@ FUNCTION {incollection}
       format.chapter.pages output
     }
   if$
+  format.doi output
   new.block
   format.note output
   format.eprint output
@@ -1188,6 +1203,7 @@ FUNCTION {inproceedings}
       format.pages output
     }
   if$
+  format.doi output
   new.block
   format.note output
   format.eprint output
@@ -1206,6 +1222,7 @@ FUNCTION {manual}
   organization "organization" bibinfo.check output
   address "address" bibinfo.check output
   format.edition output
+  format.doi output
   new.block
   format.note output
   format.eprint output
@@ -1225,6 +1242,7 @@ FUNCTION {mastersthesis}
   bbl.mthesis format.thesis.type output.nonnull
   school "school" bibinfo.warn output
   address "address" bibinfo.check output
+  format.doi output
   new.block
   format.note output
   format.eprint output
@@ -1241,6 +1259,7 @@ FUNCTION {misc}
   format.title output
   new.block
   howpublished "howpublished" bibinfo.check output
+  format.doi output
   new.block
   format.note output
   format.eprint output
@@ -1259,6 +1278,7 @@ FUNCTION {phdthesis}
   bbl.phdthesis format.thesis.type output.nonnull
   school "school" bibinfo.warn output
   address "address" bibinfo.check output
+  format.doi output
   new.block
   format.note output
   format.eprint output
@@ -1284,6 +1304,7 @@ FUNCTION {proceedings}
   if$
   format.isbn output
   format.issn output
+  format.doi output
   new.block
   format.note output
   format.eprint output
@@ -1303,6 +1324,7 @@ FUNCTION {techreport}
   format.tr.number emphasize output.nonnull
   institution "institution" bibinfo.warn output
   address "address" bibinfo.check output
+  format.doi output
   new.block
   format.note output
   format.eprint output
@@ -1317,6 +1339,7 @@ FUNCTION {unpublished}
   format.date "year" output.check
   date.block
   format.title "title" output.check
+  format.doi output
   new.block
   format.note "note" output.check
   format.eprint output
@@ -1596,13 +1619,17 @@ FUNCTION {begin.bib}
   write$ newline$
   "\newcommand{\enquote}[1]{``#1''}"
   write$ newline$
-  "\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi"
+  "\providecommand{\natexlab}[1]{#1}"
   write$ newline$
-  "\expandafter\ifx\csname url\endcsname\relax"
+  "\providecommand{\url}[1]{\texttt{#1}}"
   write$ newline$
-  "  \def\url#1{\texttt{#1}}\fi"
+  "\providecommand{\urlprefix}{URL }"
   write$ newline$
-  "\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi"
+  "\expandafter\ifx\csname urlstyle\endcsname\relax"
+  write$ newline$
+  "  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else"
+  write$ newline$
+  "  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup \urlstyle{rm}\Url}\fi"
   write$ newline$
   "\providecommand{\eprint}[2][]{\url{#2}}"
   write$ newline$

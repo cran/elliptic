@@ -17,8 +17,8 @@ P.pari(z,Omega,pari.fun="ellwp",numerical=TRUE)
   \item{Omega}{Half periods}
   \item{pari.fun}{String giving the name of the function passed to
     PARI.  Values of \code{ellwp}, \code{ellsigma}, and \code{ellzeta},
-    are acceptable here for the \eqn{\wp}{P} function, the
-    \code{\sigma}{sigma} function, and the \eqn{\zeta}{zeta} function
+    are acceptable here for the Weierstrass \eqn{\wp}{P} function, the
+    \eqn{\sigma}{sigma} function, and the \eqn{\zeta}{zeta} function
     respectively}   
   \item{numerical}{Boolean with default \code{TRUE} meaning to return
     the complex value returned by PARI, and \code{FALSE} meaning to
