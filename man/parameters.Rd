@@ -38,8 +38,8 @@ parameters(Omega=NULL, g=NULL, description=NULL)
     not real.
     
     The relevant periods are made unique by the further requirement that
-    \eqn{Re(\omega_1)>0}{Re(omega1)>0}, and 
-    \eqn{Im(\omega_2)>0}{Im(omega2)>0}; but note that this
+    \eqn{\mathrm{Re}(\omega_1)>0}{Re(omega1)>0}, and 
+    \eqn{\mathrm{Im}(\omega_2)>0}{Im(omega2)>0}; but note that this
     often results in sign changes when considering cases on boundaries
     (such as real \eqn{g_2}{g2} and \eqn{g_3}{g3}). 
     

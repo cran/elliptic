@@ -21,7 +21,7 @@ half.periods(ignore=NULL, e=NULL, g=NULL, primitive)
   \eqn{\wp}{P} function at the half periods:
   \deqn{e_1=\wp(\omega_1)\qquad e_2=\wp(\omega_2)\qquad e_3=
   \wp(\omega_3)}{e1=P(omega1), e2=P(omega2), e3=p(omega3)} where
-  \deqn{\omega_1+\omega_2+\omega_3=0}{omega1+omega2+omega3=0}.
+  \deqn{\omega_1+\omega_2+\omega_3=0.}{omega1+omega2+omega3=0.}
   
   Also, \eqn{e} is given by the roots of the cubic
   equation \eqn{x^3-g_2x-g_3=0}{x^3-g2*x-g3=0}, but the problem is

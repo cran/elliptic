@@ -27,7 +27,7 @@ u2dash <- function(x){R*2}
 
 
 ###################################################
-### code chunk number 5: residuetheorem.Rnw:95-96
+### code chunk number 5: residuetheorem.Rnw:107-108
 ###################################################
 f <- function(z){exp(1i*z)/(1+z^2)}
 
@@ -48,7 +48,7 @@ abs(answer.approximate - answer.exact)
 
 
 ###################################################
-### code chunk number 8: residuetheorem.Rnw:123-124
+### code chunk number 8: residuetheorem.Rnw:135-136
 ###################################################
 abs(integrate.segments(f,c(-R,R,1i*R))- answer.exact)
 

@@ -49,17 +49,29 @@ In this very short vignette, I will use contour integration to evaluate
   \int_{x=-\infty}^{\infty}\frac{e^{ix}}{1+x^2}\,dx
   \end{equation}
 using numerical methods.  This document is part of the \pkg{elliptic}
-package~\cite{hankin2006}. 
+package~\citep{hankin2006}. 
 
 The residue theorem tells us that the integral of~$f(z)$ along any
-closed nonintersecting path is equal to~$2\pi i$ times the sum of the
-residues inside it.
+closed nonintersecting path, traversed anticlockwise, is equal
+to~$2\pi i$ times the sum of the residues inside it.
+
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics{semicircular_path.pdf}
+    \caption{Contour\label{semicircular_path} integration path
+      from~$(-R,0)$ to~$(R,0)$ along the real axis, followed by a
+      semicircular return path in the positive imaginary half-plane.
+      Poles of~$e^{ix}/\left(1+x+2\right)$ symbolised by explosions}
+  \end{center}
+\end{figure}
 
 Take a semicircular path~$P$ from $-R$ to $+R$ along the real axis,
 then following a semicircle in the upper half plane, of radius $R$ to
-close the loop.  Now consider large R.  Then P encloses a pole at~$i$
-[there is one at $-i$ also, but this is outside P, so irrelevent here]
-at which the residue is~$-i/2e$.  Thus
+close the loop (figure~\ref{semicircular_path}.  Now consider
+large~$R$.  Then~$P$ encloses a pole at~$i$ [there is one at $-i$
+  also, but this is outside P, so irrelevent here] at which the
+residue is~$-i/2e$.  Thus
 
 \begin{equation}
   \oint_P f(z)\,dz=2\pi i\cdot(-i/2e) = \pi/e
@@ -134,20 +146,17 @@ abs(integrate.segments(f,c(-R,R,R+1i*R, -R+1i*R))- answer.exact)
 @ 
 
 
-\subsection{Residue theorem}
+\subsection*{The residue theorem for function evaluation}
 
+If $f(\cdot)$ is holomorphic within~$C$, Cauchy's
+residue theorem states that
+\begin{equation}
+  \oint_C\frac{f(z)}{z-z_0} = f(z_0).
+  \end{equation}
 
 Function \code{residue()} is a wrapper that takes a function~$f(z)$
 and integrates~$f(z)/\left(z-z_0\right)$ around a closed loop which
-encloses~$z_0$.  If $f(\cdot)$ is holomorphic within~$C$, Cauchy's
-residue theorem states that
-\begin{equation}
-  \oint_C\frac{f(z)}{z-z_0} = f(z_0)
-  \end{equation}
-
-
-
-and we can test this numerically:
+encloses~$z_0$.  We can test this numerically:
 
 <<residuetest>>=
 f <- function(z){sin(z)}
@@ -157,6 +166,8 @@ abs(numerical-exact)
 @ 
 
 which is unreasonably accurate, IMO.
+
+
 
 \bibliography{elliptic}
 \end{document}

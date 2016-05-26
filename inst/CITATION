@@ -6,10 +6,9 @@ citEntry(entry = "Article",
 	 and modular functions")
 	     },
 	 author = personList(
-         person(first = "Robin",
-		middle = "K. S.",
-		last = "Hankin",
-		email="r.hankin@noc.soton.ac.uk")),
+         person(given = c("Robin","K.S."),
+		family = "Hankin",
+		email="hankin.robin@gmail.com")),
 	 journal = "Journal of Statistical Software",
          year = "2006",
 	 month = "February",

@@ -20,7 +20,7 @@ farey(n, print=FALSE, give.series = FALSE)
   If \code{give.series} takes its default value of \code{FALSE}, return
   a matrix \code{a} of dimension \code{c(2,u)} where \code{u} is a
   (complicated) function of \code{n}.  If \code{v <- a[i,]}, then
-  \code{v[1]/v[2]} is the \eqn{i^{\mathrm th}}{i-th} term of the Farey
+  \code{v[1]/v[2]} is the \eqn{i^{\mathrm{th}}}{i-th} term of the Farey
   sequence.  Note that \code{det(a[(n):(n+1),])== -1} 
 
   If \code{give.series} is \code{TRUE}, then return a matrix \code{a} of
