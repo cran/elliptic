@@ -14,7 +14,7 @@ unimodularity(n,o, FUN, ...)
   \item{n}{Maximum size of entries of matrices}
   \item{o}{Two element vector}
   \item{FUN}{Function whose unimodularity is to be checked}
-  \item{...}{Extra arguments passed to \code{FUN}}
+  \item{...}{Further arguments passed to \code{FUN}}
 }
 \details{
   Here, a \sQuote{unimodular} matrix is of size \eqn{2\times 2}{2x2},
