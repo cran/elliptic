@@ -7,64 +7,52 @@ require(elliptic,quietly=TRUE)
 
 
 ###################################################
-### code chunk number 2: chooseR
+### code chunk number 2: residuetheorem.Rnw:156-157
 ###################################################
-R <- 400
+integrate.segments(exp, c(0, 1, 1+1i, 1i), close=TRUE)
 
 
 ###################################################
-### code chunk number 3: definesemi
+### code chunk number 3: residuetheorem.Rnw:170-173
 ###################################################
-u1     <- function(x){R*exp(pi*1i*x)}
-u1dash <- function(x){R*pi*1i*exp(pi*1i*x)}
+analytic <- exp(1)*(exp(1i)-1)
+numeric  <- integrate.segments(exp, c(1, 1+1i), close=FALSE)
+c(analytic=analytic, numeric=numeric, difference=analytic-numeric)
 
 
 ###################################################
-### code chunk number 4: straightpart
+### code chunk number 4: residuetheorem.Rnw:199-205
 ###################################################
-u2     <- function(x){R*(2*x-1)}
-u2dash <- function(x){R*2}
+u     <- function(x){exp(pi*2i*x)}
+udash <- function(x){pi*2i * exp(pi*2i*x)}
+
+analytic <- pi*2i
+numeric  <- integrate.contour(function(z){1/z}, u, udash)
+c(analytic=analytic, numeric=numeric, difference=analytic-numeric)
 
 
 ###################################################
-### code chunk number 5: residuetheorem.Rnw:108-109
+### code chunk number 5: showhypergeofail
 ###################################################
-f <- function(z){exp(1i*z)/(1+z^2)}
+library("hypergeo")
+z0 <- 1/2 + sqrt(3)/2i
+f <- function(z){hypergeo_powerseries(1/2, 1/3, 1/5, z)}
+f(z0)
 
 
 ###################################################
-### code chunk number 6: ansapp
+### code chunk number 6: residuetheorem.Rnw:269-273
 ###################################################
-answer.approximate <-
-    integrate.contour(f,u1,u1dash) +
-    integrate.contour(f,u2,u2dash) 
+r <- 0.1 # radius of contour
+u <- function(x){z0 + r*exp(pi * 2i * x)}
+udash <- function(x){r * pi * (0+2i) * exp(pi * 2i * x)}
+(val_residue <- integrate.contour(function(z){f(z) / (z-z0)}, u, udash) / (pi*2i))
 
 
 ###################################################
-### code chunk number 7: compareans
+### code chunk number 7: residuetheorem.Rnw:280-282
 ###################################################
-answer.exact <- pi/exp(1)
-abs(answer.approximate - answer.exact)
-
-
-###################################################
-### code chunk number 8: residuetheorem.Rnw:136-137
-###################################################
-abs(integrate.segments(f,c(-R,R,1i*R))- answer.exact)
-
-
-###################################################
-### code chunk number 9: useabigsquare
-###################################################
-abs(integrate.segments(f,c(-R,R,R+1i*R, -R+1i*R))- answer.exact)
-
-
-###################################################
-### code chunk number 10: residuetest
-###################################################
-f <- function(z){sin(z)}
-numerical <- residue(f,z0=1,r=1)
-exact <- sin(1)
-abs(numerical-exact)
+(val_gosper <- hypergeo_gosper(1/2, 1/3, 1/5, z0))
+abs(val_gosper - val_residue)
 
 

@@ -1,4 +1,4 @@
-### R code from vignette source 'ellipticpaper.Rnw'
+### R code from vignette source 'elliptic.Rnw'
 
 ###################################################
 ### code chunk number 1: requirepackage
@@ -20,7 +20,7 @@ n_BACCO <- 40
 
 
 ###################################################
-### code chunk number 4: ellipticpaper.Rnw:234-237
+### code chunk number 4: elliptic.Rnw:234-237
 ###################################################
 require(elliptic)
 require(emulator)

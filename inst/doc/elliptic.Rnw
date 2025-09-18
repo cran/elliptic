@@ -4,6 +4,7 @@
 \usepackage{bbm}
 \usepackage{amsfonts}
 \usepackage{wasysym}
+\usepackage{wrapfig2}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% declarations for jss.cls %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -24,28 +25,21 @@
 %% an abstract and keywords
 \Abstract{
 
+To cite the package in publications, use \citet{hankin2006}.
 This paper introduces the \pkg{elliptic} package of \proglang{R} routines, for
 numerical calculation of elliptic and related functions.  Elliptic
 functions furnish interesting and instructive examples of many ideas
 of complex analysis, and package \pkg{elliptic} illustrates these
 numerically and visually.  A statistical application in fluid
 mechanics is presented.
-
-An earlier version of this vignette was published as~\citet{hankin2006}. 
 }
 
 \Keywords{Elliptic functions, modular functions, Weierstrass elliptic
 functions, visualization of complex functions}
 
-
-
-
 \Address{
   Robin K. S. Hankin\\
-  Auckland University of Technology\\
-  2-14 Wakefield Street\\
-  Auckland\\
-  New Zealand\\
+  The University of Stirling\\
   E-mail: \email{hankin.robin@gmail.com}
 }
 
@@ -67,6 +61,11 @@ n_BACCO <- 40
 
 \section{Introduction}
 
+
+\begin{wrapfigure}{r}{30mm}
+\includegraphics[width=1in]{\Sexpr{system.file("help/figures/elliptic.png",package="elliptic")}}
+\end{wrapfigure}
+%
 The elliptic functions crop up here and there in diverse areas of
 applied mathematics such as cosmology~\citep{kraniotis2002}, chemical
 engineering~\citep{koopman1991}, dynamical systems~\citep{kotus2003},
@@ -76,13 +75,14 @@ interesting and instructive non-elementary examples of many results in
 complex analysis such as Cauchy's integral theorem and the residue
 theorem.
 
-In this paper I introduce \pkg{elliptic}, a new \proglang{R} package for
-numerical calculation of Weierstrass and Jacobi elliptic functions,
-theta functions and modular functions.  The emphasis is on efficient
-numerical calculation, and informative visualization techniques.
+In this paper I introduce \pkg{elliptic}, a new \proglang{R} package
+for numerical calculation of Weierstrass and Jacobi elliptic
+functions, theta functions and modular functions; it is based
+on~\citet{hankin2006}.  The emphasis is on efficient numerical
+calculation, and informative visualization techniques.
 
-The package is available on CRAN, \url{http://cran.R-project.org/}
-\citep{rcore2005}. 
+The package is available on CRAN,
+\url{https://CRAN.R-project.org/package=elliptic} \citep{rcore2005}.
 
 \section{Elliptic functions}\label{section:introduction}
 
