@@ -1,5 +1,5 @@
 Package: elliptic
-Version: 1.5-0
+Version: 1.5-1
 Title: Weierstrass and Jacobi Elliptic Functions
 Authors@R: person(given=c("Robin", "K. S."), family="Hankin", role = c("aut","cre"), email="hankin.robin@gmail.com", comment = c(ORCID = "0000-0001-5982-0415"))
 Depends: R (>= 2.5.0)
@@ -16,8 +16,8 @@ URL: https://github.com/RobinHankin/elliptic,
         https://robinhankin.github.io/elliptic/
 BugReports: https://github.com/RobinHankin/elliptic/issues
 NeedsCompilation: no
-Packaged: 2025-09-18 08:46:32 UTC; rhankin
+Packaged: 2025-11-10 15:44:10 UTC; rhankin
 Author: Robin K. S. Hankin [aut, cre] (ORCID:
     <https://orcid.org/0000-0001-5982-0415>)
 Repository: CRAN
-Date/Publication: 2025-09-18 10:30:02 UTC
+Date/Publication: 2025-11-10 17:50:02 UTC

@@ -18,7 +18,7 @@
 
 %% just as usual
 \author{Robin K. S. Hankin}
-\title{The residue theorem from a numerical perspective}
+\title{Cauchy's integral theorem: a numerical perspective}
 %\VignetteIndexEntry{The residue theorem from a numerical perspective}
 %% for pretty printing and a nice hypersummary also set:
 %% \Plainauthor{Achim Zeileis, Second Author} %% comma-separated
@@ -31,9 +31,12 @@
 %% an abstract and keywords
 
 \Abstract{Here I use the {\tt myintegrate()} function of the
-\pkg{elliptic} package to illustrate three classical theorems from
-analysis: Cauchy's integral theorem, the residue theorem, and Cauchy's
-integral formula.}
+  \pkg{elliptic} package to illustrate three classical theorems from
+  analysis: Cauchy's integral theorem, the residue theorem, and
+  Cauchy's integral formula.  In all cases, numerical values agree
+  with analytical results to within numerical precision.  Some further
+  work is suggested.
+}
 
 \Keywords{Residue theorem, Cauchy formula, Cauchy's integral formula,
   contour integration, complex integration, Cauchy's theorem}
@@ -45,21 +48,21 @@ integral formula.}
 %% publication information
 %% NOTE: This needs to filled out ONLY IF THE PAPER WAS ACCEPTED.
 %% If it was not (yet) accepted, leave them commented.
-% \Volume{VOL}
-% \Issue{ISS}
+\Volume{0}
+\Issue{0}
 % \Month{MONTH}
-% \Year{YEAR}
-% \Submitdate{yyyy-mm-dd}
-% \Acceptdate{yyyy-mm-dd}
-% \Repository{https://doi.org/10.9999/nonexistent-article}
+\Year{0000}
+\Submitdate{0000-00-00}
+\Acceptdate{0000-00-00}
+%% \Repository{https://github.com/RobinHankin/elliptic}
 
 %% The address of (at least) one author should be given
 %% in the following format:
 \Address{
-  Robin K. S. Hankin\\%\orcid{https://orcid.org/0000-0001-5982-0415}\\
+  Robin K. S. Hankin\\
   University of Stirling\\
   Scotland\\
-  E-mail: \email{hankin.robin@gmail.com}
+  email: \email{hankin.robin@gmail.com}
 }
 
 
@@ -99,7 +102,7 @@ cohesive suite of results.
 In this short document I use numerical methods to illustrate and
 highlight some of their consequences for complex analysis.
 
-\subsection{Cauchy's integral theorem}.
+\subsection{Cauchy's integral theorem}
 
 Augustin-Louis Cauchy proved an early version of the integral theorem
 in 1814; it required that the function's derivative was continuous.
@@ -287,7 +290,10 @@ Above we see reasonable numerical agreement.
 
 \section{Conclusions}
 
+The \pkg{elliptic} package includes a suite of functionality for
+complex integration using numerical methods and these are used to
+demonstrate Cauchy's integral theorem, the residue theorem, and
+Cauchy's integral formula.  Numerical errors are generally small.
+
 \bibliography{elliptic}
 \end{document}
-
-
